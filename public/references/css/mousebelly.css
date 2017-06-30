@@ -1,0 +1,274 @@
+.masthead
+{
+  position: fixed;
+  top: 0px;
+  
+  box-shadow: 0px 0px 0px #777777;
+  height: 100px;
+  width: 20%;
+
+  
+}
+
+.navbar-toggle1
+{
+  float: right;
+  width: 80px;
+  height: 80px;
+  background-color: transparent;
+}
+
+.navbar-toggle1:hover
+{
+  background-color: white;
+}
+
+.navback
+{
+  background-image: url("/images/mastback.jpg");
+  background-size: cover;
+
+  box-shadow: 0px 0px 0px #777777;
+  height: 100px;
+  width: 100%;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 10% 50%; 
+
+  border: none;
+}
+
+.SignupButton
+{
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  background-color: none;
+
+  color: #FFFFFF;
+
+  border: 1px solid #FFFFFF;
+
+  margin-top: 25px;
+  height: 50px;
+
+  line-height: 90px;
+  
+  padding-top: -5px;
+}
+
+.SignupButton:hover
+{
+  box-shadow: inset 0px 0px 120px #CCCCCC;
+  
+}
+
+.LoginButton
+{
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  background-color: none;
+
+  color: #FFFFFF;
+
+  border: 1px solid #FFFFFF;
+
+  margin-top: 25px;
+  height: 50px;
+
+  line-height: 90px;
+  
+  padding-top: -5px;
+}
+
+.LoginButton:hover
+{
+  box-shadow: inset 0px 0px 120px #CCCCCC;
+  
+}
+
+.bodystyle
+{
+  /*background-image: url("/images/doodle.jpg") , linear-gradient(#000000, #d13531);
+  background-size: 520px 590px;
+  background-repeat: repeat;*/
+  background: linear-gradient( rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85) ), url("/images/doodle.jpg") 10% repeat;
+  background-size: 520px 590px;
+}
+
+.head
+{
+  position: fixed;
+  
+  top: 0px;
+  box-shadow: 0px 0px 20px #777777;
+
+  height: 100px;
+  width: 100%;
+
+  
+  background-color: transparent;
+}
+
+.loader {
+    position: fixed;
+    border: none; /* Light grey */
+    border-bottom: 32px solid #3498db; /* Blue */
+    /*border-bottom: 16px double #770000;*/ /* Blue */
+    border-radius: 100%;
+    width: 420px;
+    height: 420px;
+
+    z-index: -1;
+    
+    margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
+    left: 0;
+    right: 0;
+
+    box-shadow: 0px 0px 5px #CCCCCC;
+
+    background-color: white;
+    animation: spin 2s linear infinite;
+}
+
+.loginloader {
+    border: none; /* Light grey */
+    border-bottom: 2px solid #3498db; /* Blue */
+    /*border-bottom: 16px double #770000;*/ /* Blue */
+    border-radius: 100%;
+    width: 100%;
+    padding-top:100%;
+    
+    z-index: -1;
+    
+    margin: auto; /* Will not center vertically and won't work in IE6/7. */
+    
+    box-shadow: 0px 0px 5px #CCCCCC;
+
+    background-color: white;
+    animation: spin 2s linear infinite;
+}
+
+.MouseBellyLabel
+{
+  border-radius: 10px; 
+  background-color: #FFFFFF; 
+  left: 130px;
+  height: 80px; 
+  position: fixed; 
+  top: 10px; 
+  width: 250px; 
+  padding: 10px;
+
+  border: 1px solid #770000;
+
+  box-shadow: inset 0px 0px 8px #999999;
+}
+
+.Mouselabel
+{
+  font-family: 'Satisfy', cursive;
+  font-size: 32px;
+
+  color: #99A706;
+
+  position: relative; left: 20px;
+
+  top: -28px;
+
+  font-weight: 100;
+}
+
+.Mouselabel::first-letter { 
+    font-size: 72px;
+    
+}
+
+.Bellylabel
+{
+  font-family: 'Satisfy', cursive;
+  font-size: 2em;
+
+  top: -25px;
+
+  color: rgb(128,0,0);
+
+  position: relative; left: 20px;
+
+  font-weight: 100;
+}
+
+.Bellylabel::first-letter { 
+    font-size: 3em;
+    
+}
+
+.pageleft
+{
+  position: fixed;
+  width: 30px;
+  height: 100%;
+
+  background-size: 520px 590px;
+  background-repeat: repeat;
+  background-image: url("/images/doodle5.jpg") , linear-gradient(#000000, #d13531);
+  top: 100px;
+  z-index: -1;
+
+  box-shadow: inset 0px 0px 10px #777777;
+}
+
+.pageright
+{
+  position: fixed;
+  width: 30px;
+  height: 100%;
+
+  right: 0;
+
+  background-size: 520px 590px;
+  background-repeat: repeat;
+  background-image: url("/images/doodle5.jpg") , linear-gradient(#000000, #d13531);
+  top: 100px;
+  z-index: -1;
+
+  box-shadow: inset 0px 0px 10px #777777;
+}
+
+.innerloginloader {
+    border-radius: 100%;
+    width: 100%;
+    position: relative;
+    margin-top: -75%;
+    text-align: center;
+    z-index: 50;
+    
+    background-color: none;
+    
+    animation: spin 0s linear infinite;
+}
+
+.innerloader {
+    border-radius: 100%;
+    width: 420px;
+    height: 420px;
+
+    line-height: 420px;
+
+    font-size: 50px;
+
+    margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 5;
+    
+    background-color: none;
+    
+    animation: spin 0s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
