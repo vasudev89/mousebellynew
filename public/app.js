@@ -9,8 +9,13 @@ window.addEventListener('resize', function()
   var width = document.body.clientWidth;
   if( width > 600 )
   {
-    document.getElementById("myTopnav").className = "topnav";
-    $("#myTopnav").css({height: '-=180px'});
+    if( !( document.getElementById("myTopnav").className === "topnav" ) )
+    {
+      document.getElementById("myTopnav").className = "topnav";
+      $("#myTopnav").css({height: '-=180px'});
+      toggleNav = false;
+    }
+    
   }
 
 }, false);
