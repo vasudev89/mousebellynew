@@ -154,10 +154,12 @@
   border-radius: 10px; 
   background-color: #FFFFFF; 
   left: 130px;
-  height: 80px; 
-  position: fixed; 
+  height: 6em; 
+  line-height: 6em;
+  position: absolute; 
   top: 10px; 
-  width: 20em; 
+  width: 25vw;
+  margin-right: 20px; 
   padding: 10px;
 
   text-align: center;
@@ -170,14 +172,15 @@
 .Mouselabel
 {
   font-family: 'Satisfy', cursive;
-  font-size: 2em;
+  font-size: 16px;
+  font-size: 3.75vw;
 
   color: #99A706;
 
   position: relative; 
   left: 0px;
 
-  top: -15px;
+  top: -10px;
 
   font-weight: 100;
 }
@@ -190,9 +193,9 @@
 .Bellylabel
 {
   font-family: 'Satisfy', cursive;
-  font-size: 2em;
+  font-size: 2vw;
 
-  top: -15px;
+  top: -10px;
 
   color: rgb(128,0,0);
 
