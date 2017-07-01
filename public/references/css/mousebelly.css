@@ -1,3 +1,8 @@
+* {
+   outline: none !important;
+}
+
+
 .masthead
 {
   position: fixed;
@@ -137,7 +142,7 @@
     /*border-bottom: 16px double #770000;*/ /* Blue */
     border-radius: 100%;
     width: 100%;
-    padding-top:100%;
+    padding-top:50%;
     
     z-index: -1;
     
@@ -147,6 +152,7 @@
 
     background-color: white;
     animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
 }
 
 .MouseBellyLabel
@@ -155,13 +161,15 @@
   background-color: #FFFFFF; 
   left: 130px;
   height: 6em; 
-  line-height: 6vw;
+  line-height: 6em;
   position: absolute; 
   top: 10px; 
-  width: 25vw;
+  width: 28%;
   margin-right: 20px; 
   padding: 10px;
 
+  padding-top: 1.25em;
+  
   text-align: center;
 
   border: 1px solid #770000;
@@ -172,10 +180,10 @@
 .Mouselabel
 {
   font-family: 'Satisfy', cursive;
-  font-size: 2vw;
+  font-size: 2em;
 
   position: relative;
-  top: -20px;
+  top: 0.3em;
 
   color: #99A706;
 
@@ -187,13 +195,54 @@
     
 }
 
+
+.loginMouselabel
+{
+  font-family: 'Satisfy', cursive;
+  font-size: 32px;
+
+  position: relative;
+  top: 0.3em;
+
+  margin-bottom: -20px;
+
+  color: #99A706;
+
+  font-weight: 100;
+}
+
+.loginMouselabel::first-letter { 
+    font-size: 2.5em;
+    
+}
+
+.loginBellylabel
+{
+  font-family: 'Satisfy', cursive;
+  font-size: 32px;
+
+  margin-top: -10px;
+
+  position: relative;
+  top: 0.3em;
+
+  color: #770000;
+
+  font-weight: 100;
+}
+
+.loginBellylabel::first-letter { 
+    font-size: 2.5em;
+    
+}
+
 .Bellylabel
 {
   font-family: 'Satisfy', cursive;
-  font-size: 2vw;
+  font-size: 2em;
 
   position: relative;
-  top: -20px;
+  top: 0.3em;
 
   color: rgb(128,0,0);
 
@@ -239,16 +288,24 @@
 }
 
 .innerloginloader {
-    border-radius: 100%;
-    width: 100%;
+    border-radius: 0%;
+    width: 80%;
     position: relative;
-    margin-top: -75%;
     text-align: center;
+    
+    
+
+    margin: auto;
+
+    margin-top: -100%;
+
+    border: 1px solid red;
+
     z-index: 50;
     
     background-color: none;
     
-    animation: spin 0s linear infinite;
+    
 }
 
 .innerloader {
@@ -306,7 +363,7 @@
 }
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
     float: right;
@@ -315,7 +372,7 @@
 }
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .topnav.responsive {position: relative; 
     
   }
@@ -333,17 +390,16 @@
 
   .Mouselabel
   {
-    top:-10px;
-    left:-15px;
-    font-size: 3.75vw;
+    top:-2vw;
+    left:-2vw;
+    font-size: 1em;
   }
 
   .Bellylabel
   {
-    font-size: 3.75vw;
-    left: 7px;
-    top: -5px;
-    bottom: 0px;
+    font-size: 1em;
+    left: 0vw;
+    top: 0vw;
   }
 }
 
