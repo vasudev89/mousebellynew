@@ -2,6 +2,38 @@ var app = angular.module('myApp',['ngRoute']);
 
 console.log('Hi');
 
+var toggleNav = false;
+
+window.addEventListener('resize', function()
+{
+  var width = document.body.clientWidth;
+  if( width > 600 )
+  {
+    document.getElementById("myTopnav").className = "topnav";
+    $("#myTopnav").css({height: '-=180px'});
+  }
+
+}, false);
+
+function myFunction() {
+    
+    if( !toggleNav )
+      $("#myTopnav").animate({height: '+=180px'});
+    else
+      $("#myTopnav").animate({height: '-=180px'});
+
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+
+    toggleNav = !toggleNav;
+    
+}
+
+
 app.config(function($routeProvider){
 	
 	$routeProvider
