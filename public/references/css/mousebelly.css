@@ -155,7 +155,7 @@
   background-color: #FFFFFF; 
   left: 130px;
   height: 6em; 
-  line-height: 6em;
+  line-height: 6vw;
   position: absolute; 
   top: 10px; 
   width: 25vw;
@@ -172,15 +172,12 @@
 .Mouselabel
 {
   font-family: 'Satisfy', cursive;
-  font-size: 16px;
-  font-size: 3.75vw;
+  font-size: 2vw;
+
+  position: relative;
+  top: -15px;
 
   color: #99A706;
-
-  position: relative; 
-  left: 0px;
-
-  top: -10px;
 
   font-weight: 100;
 }
@@ -195,12 +192,11 @@
   font-family: 'Satisfy', cursive;
   font-size: 2vw;
 
-  top: -10px;
+  position: relative;
+  top: -15px;
 
   color: rgb(128,0,0);
 
-  position: relative;
-  left: 0px;
 
   font-weight: 100;
 }
@@ -334,4 +330,20 @@
     display: block;
     text-align: left;
   }
+
+  .Mouselabel
+  {
+    top:-5px;
+    left:-15px;
+    font-size: 3.75vw;
+  }
+
+  .Bellylabel
+  {
+    font-size: 3.75vw;
+    left: 7px;
+    top: 0px;
+    bottom: 0px;
+  }
 }
+
