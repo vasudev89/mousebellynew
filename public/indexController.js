@@ -31,7 +31,7 @@ app.controller("indexController",['$scope','$location','$window','$http',functio
 	$scope.Login = function()
 	{
 
-		$("#loginloader").fadeIn(500);
+		$("#loginloader").fadeIn(1500);
 
 		window.setTimeout(function(){
 			$("#loginloader").fadeOut(500);
