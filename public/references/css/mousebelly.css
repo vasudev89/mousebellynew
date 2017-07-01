@@ -157,8 +157,10 @@
   height: 80px; 
   position: fixed; 
   top: 10px; 
-  width: 250px; 
+  width: 20em; 
   padding: 10px;
+
+  text-align: center;
 
   border: 1px solid #770000;
 
@@ -168,19 +170,20 @@
 .Mouselabel
 {
   font-family: 'Satisfy', cursive;
-  font-size: 32px;
+  font-size: 2em;
 
   color: #99A706;
 
-  position: relative; left: 20px;
+  position: relative; 
+  left: 0px;
 
-  top: -28px;
+  top: -15px;
 
   font-weight: 100;
 }
 
 .Mouselabel::first-letter { 
-    font-size: 72px;
+    font-size: 2.5em;
     
 }
 
@@ -189,17 +192,18 @@
   font-family: 'Satisfy', cursive;
   font-size: 2em;
 
-  top: -25px;
+  top: -15px;
 
   color: rgb(128,0,0);
 
-  position: relative; left: 20px;
+  position: relative;
+  left: 0px;
 
   font-weight: 100;
 }
 
 .Bellylabel::first-letter { 
-    font-size: 3em;
+    font-size: 2.5em;
     
 }
 
