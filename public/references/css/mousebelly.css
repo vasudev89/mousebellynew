@@ -143,8 +143,8 @@
     border-bottom: 2px solid #3498db; /* Blue */
     /*border-bottom: 16px double #770000;*/ /* Blue */
     border-radius: 100%;
-    width: 70%;
-    padding-top: 70%;
+    width:85px;
+    padding-top: 85px;
     /*height: 100%;*/
 
     z-index: 1;
@@ -308,15 +308,15 @@
 
 .innerloginloader {
     border-radius: 0%;
-    width: 60%;
+    width: 85px;
     position: relative;
-    text-align: center;
-    
     
 
     margin: auto;
+    left: 0;
+    right: 0;
 
-    margin-top: -75%;
+    margin-top: -100px;
 
     border: 0px solid red;
 
