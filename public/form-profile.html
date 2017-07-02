@@ -1,13 +1,34 @@
 <div class="form-group">
     <label for="name">Username</label>
-    <input type="text" class="form-control" name="name" ng-model="formData.Username" ng-change="ValidateUsername()">
+    <input type="text" class="form-control" name="name" placeholder="Enter Username" ng-model="formData.Username" ng-change="ValidateUsername()">
     <span ng-show="UsernameError" class="text-danger error-font"><br>Username cannot be empty</span>
 </div>
 
 <div class="form-group">
     <label for="email">Email</label>
-    <input type="text" class="form-control" name="email" ng-model="formData.email">
+    <input type="text" class="form-control" name="email" placeholder="Enter Email" ng-model="formData.Email" ng-change="ValidateEmail()">
+    <span ng-show="EmailError" class="text-danger error-font"><br>Invalid Email</span>
 </div>
+
+<div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" placeholder="Enter Password" ng-model="formData.Password" ng-change="ValidatePassword()">
+    <span ng-show="PasswordError" class="text-danger error-font"><br>Invalid Password</span>
+</div>
+
+<div class="form-group">
+    <label for="cpassword">Confirm Password</label>
+    <input type="password" class="form-control" name="cpassword" placeholder="Confirm Password" ng-model="formData.ConfirmPassword" ng-change="ValidateConfirmPassword()">
+    <span ng-show="ConfirmPasswordError" class="text-danger error-font"><br>Passwords do not match</span>
+</div>
+
+<div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input type="number" class="form-control" name="phone" placeholder="Enter Phone Number" ng-model="formData.Phone" ng-change="ValidatePhone()">
+    <span ng-show="PhoneError" class="text-danger error-font"><br>Phone Number must be a valid Indian Mobile Number</span>
+</div>
+
+<br>
 
 <div class="form-group row">
 <div class="col-xs-6 col-xs-offset-3">
