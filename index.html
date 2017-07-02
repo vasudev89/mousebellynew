@@ -12,6 +12,7 @@
 
 	<link rel="icon" type="image/png" href="images/logo.png">
 	
+
 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -21,7 +22,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>	
 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+
   <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+
+  <script type="text/javascript" src="signupapp.js"></script>
+<script type="text/javascript" src="app.js"></script>
+
+<script type="text/javascript" src="indexController.js"></script>
+<script type="text/javascript" src="formController.js"></script>
 
 	
 	<!--  -->
@@ -29,8 +39,7 @@
 
 </head>
 
-<script type="text/javascript" src="app.js"></script>
-<script type="text/javascript" src="indexController.js"></script>
+
 
 <body class="bodystyle" ng-controller="indexController">
 	<div class="pageleft"></div>
@@ -47,10 +56,10 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <br>
-        <label class="Mouselabel" style="">Mouse</label>
-		<label class="Bellylabel" style="">Belly</label>
+        <label class="signupMouselabel" style="">Mouse</label>
+		<label class="signupBellylabel" style="">Belly</label>
 	
-		<h3 style="margin-top: -40px;">Sign Up</h3>
+		<h3 style="margin-top: -0px;">Sign Up</h3>
       </div>
       <div class="modal-body">
         <p>Some text in the modal.</p>
@@ -130,9 +139,9 @@
 	</div>
 	</span>
 
-	<a style="" class="SignupButton" href="#contact">Sign Up</a>
+	<a style="" class="SignupButton" href="#!signup1" >Sign Up</a>
 
-	<a style="" class="LoginButton" href="#about" data-toggle="modal" data-target="#loginModal">Login</a>
+	<a style="" class="LoginButton" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
 
 	&nbsp;&nbsp;
 	&nbsp;&nbsp;
@@ -187,7 +196,7 @@
 	  </div>
   </div>
 
-  <div id="ViewDiv" ng-view></div>
+  <div style="border: 0px solid red; margin-left: 35px; margin-right: 35px; " ng-view></div>
 
 </body>
 
