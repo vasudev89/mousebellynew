@@ -62,6 +62,8 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		//$scope.CheckOverallError();
 	}
     
+	$scope.formData.Gender = 'Female';
+
     // function to process the form
     $scope.processForm = function() {
         alert('awesome!');  

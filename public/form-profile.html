@@ -1,35 +1,170 @@
-<div class="form-group">
-    <label for="name">Username</label>
-    <input type="text" class="form-control" name="name" placeholder="Enter Username" ng-model="formData.Username" ng-change="ValidateUsername()">
-    <span ng-show="UsernameError" class="text-danger error-font"><br>Username cannot be empty</span>
-</div>
+<div class="container" style="margin: auto; width: 80%;">
 
-<div class="form-group">
-    <label for="email">Email</label>
-    <input type="text" class="form-control" name="email" placeholder="Enter Email" ng-model="formData.Email" ng-change="ValidateEmail()">
-    <span ng-show="EmailError" class="text-danger error-font"><br>Invalid Email</span>
-</div>
+  <div class="row" style="border: 0px solid red;">
 
-<div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" name="password" placeholder="Enter Password" ng-model="formData.Password" ng-change="ValidatePassword()">
-    <span ng-show="PasswordError" class="text-danger error-font"><br>Invalid Password</span>
-</div>
+    <div class="col-sm-4" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+      <label for="name">Username</label>
+    </div>
 
-<div class="form-group">
-    <label for="cpassword">Confirm Password</label>
-    <input type="password" class="form-control" name="cpassword" placeholder="Confirm Password" ng-model="formData.ConfirmPassword" ng-change="ValidateConfirmPassword()">
-    <span ng-show="ConfirmPasswordError" class="text-danger error-font"><br>Passwords do not match</span>
-</div>
+    <div class="col-sm-8" style="height: 50px; line-height: 50px; padding-top: 8px;">
+      <input type="text" class="form-control" name="name" placeholder="Enter Username" ng-model="formData.Username" ng-change="ValidateUsername()">
+    </div>
 
-<div class="form-group">
-    <label for="phone">Phone Number</label>
-    <input type="number" class="form-control" name="phone" placeholder="Enter Phone Number" ng-model="formData.Phone" ng-change="ValidatePhone()">
-    <span ng-show="PhoneError" class="text-danger error-font"><br>Phone Number must be a valid Indian Mobile Number</span>
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="UsernameError" class="text-danger error-font"><br>Username cannot be empty<br><br></span>
+    </div>
+
+  </div>
+
+  <!--  -->
+
+  <div class="row" style="border: 0px solid red;">
+
+    <div class="col-sm-4" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+      <label for="email">Email</label>
+    </div>
+
+    <div class="col-sm-8" style="height: 50px; line-height: 50px; padding-top: 8px;">
+      <input type="text" class="form-control" name="email" placeholder="Enter Email" ng-model="formData.Email" ng-change="ValidateEmail()">
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="EmailError" class="text-danger error-font"><br>Invalid Email Format<br><br></span>
+    </div>
+
+  </div>
+
+  <!--  -->
+
+  <div class="row" style="border: 0px solid red;">
+
+    <div class="col-sm-4" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+      <label for="password">Password</label>
+    </div>
+
+    <div class="col-sm-8" style="height: 50px; line-height: 50px; padding-top: 8px;">
+      <input type="password" class="form-control" name="password" placeholder="Enter Password" ng-model="formData.Password" ng-change="ValidatePassword()">
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="PasswordError" class="text-danger error-font"><br>Invalid Password<br><br></span>
+    </div>
+
+  </div>
+
+  <!--  -->
+
+  <div class="row" style="border: 0px solid red;">
+
+    <div class="col-sm-4" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+      <label for="cpassword">Confirm Password</label>
+    </div>
+
+    <div class="col-sm-8" style="height: 50px; line-height: 50px; padding-top: 8px;">
+      <input type="password" class="form-control" name="cpassword" placeholder="Confirm Password" ng-model="formData.ConfirmPassword" ng-change="ValidateConfirmPassword()">
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="ConfirmPasswordError" class="text-danger error-font"><br>Passwords do not Match<br><br></span>
+    </div>
+
+  </div>
+
+  <!--  -->
+
+  <div class="row" style="border: 0px solid red;">
+
+    <div class="col-sm-4" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+      <label for="phone">Enter Phone</label>
+    </div>
+
+    <div class="col-sm-8" style="height: 50px; line-height: 50px; padding-top: 8px;">
+      <input type="number" class="form-control" name="phone" placeholder="Enter Phone Number" ng-model="formData.Phone" ng-change="ValidatePhone()">
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="PhoneError" class="text-danger error-font"><br>Phone Number must be a valid Indian Mobile Number<br><br></span>
+    </div>
+
+  </div>
+
+  <!--  -->
+
+  <div class="row" style="border: 0px solid red;">
+
+    <div class="col-sm-4" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+      <label for="phone">Gender</label>
+    </div>
+
+    <div class="col-sm-8" style="height: 50px; line-height: 50px; padding-top: 8px;">
+      <select path="gender" ng-model="formData.Gender" class="form-control select-menu">
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>                  
+      </select>
+    </div>
+
+  </div>
+
+  <div class="row" style="border: 0px solid red;">
+
+    <div class="col-sm-4" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+      <label for="phone">Date Of Birth:</label>
+    </div>
+
+    <div class="col-sm-8" style="height: 50px; line-height: 50px; padding-top: 8px;">
+      
+      <input id="datepicker" value="10/10/2011" ng-model="formData.DOB" title="datepicker" style="width: 100%" />
+
+    </div>
+
+    <script>
+            $(document).ready(function() {
+                // create DatePicker from input HTML element
+                $("#datepicker").kendoDatePicker();
+
+                $("#monthpicker").kendoDatePicker({
+                    // defines the start view
+                    start: "year",
+
+                    // defines when the calendar should return date
+                    depth: "year",
+
+                    // display month and year in the input
+                    format: "MMMM yyyy",
+
+                    // specifies that DateInput is used for masking the input element
+                    dateInput: true
+                });
+            });
+        </script>
+
+  </div>
+
+  
 </div>
 
 <br>
-
+<br>
 <div class="form-group row">
 <div class="col-xs-6 col-xs-offset-3">
     <a ui-sref="form.interests" class="btn btn-block btn-info">

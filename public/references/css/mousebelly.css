@@ -462,6 +462,18 @@
   }
 }
 
+.select-menu
+{
+  -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 5px;
+    outline: 1px solid #333333;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+   
+}
+
 
 /**/
 /* BASIC STYLINGS
