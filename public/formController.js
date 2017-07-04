@@ -66,6 +66,26 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
     
 	$scope.formData.Gender = 'Female';
 
+	$scope.formData.DOB = '';
+	$scope.DOBError = false;
+	$scope.DOBTouched = false;
+	$scope.ValidateDOB = function()
+	{
+		$scope.DOBTouched = true;
+		//$scope.formData.DOB = new Date( $scope.formData.DOB );
+
+		var date1 = new Date( $scope.formData.DOB );
+		var date2 = new Date(  );
+		var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+		
+		if( parseInt(diffDays/365) < 18 )
+			$scope.DOBError = true;
+		else
+			$scope.DOBError = false;
+		//$scope.CheckOverallError();
+	}
+
     // function to process the form
     $scope.processForm = function() {
         alert('awesome!');  
