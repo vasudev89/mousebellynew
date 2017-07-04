@@ -13,8 +13,10 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 	$scope.ValidateUsername = function()
 	{
 		$scope.UsernameTouched = true;
-		var reg = /^$/;
-		$scope.UsernameError = reg.test( $scope.formData.Username );
+		var reg = /^.[a-zA-Z0-9_ ]{2,}$/;
+		$scope.UsernameError = !reg.test( $scope.formData.Username );
+
+		$scope.formData.Username = $scope.formData.Username.toProperCase();
 		//$scope.CheckOverallError();
 	}
 	
