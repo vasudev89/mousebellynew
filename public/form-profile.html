@@ -59,7 +59,7 @@
   <div class="row">
 
     <div class="col-lg-12" style="text-align: center;">
-      <span ng-show="PasswordError" class="text-danger error-font"><br>Invalid Password<br><br></span>
+      <span ng-show="PasswordError" class="text-danger error-font"><br>Password must be minimum 6 characters, with at least one letter, one number and one special character<br><br></span>
     </div>
 
   </div>
@@ -153,7 +153,7 @@
                     format: "MMMM yyyy",
 
                     // specifies that DateInput is used for masking the input element
-                    dateInput: true
+                    dateInput: false
                 });
             });
         </script>

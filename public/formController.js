@@ -37,7 +37,7 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 	$scope.ValidatePassword = function()
 	{
 		$scope.PasswordTouched = true;
-		var reg = /^.{8,20}$/;
+		var reg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}/;
 		$scope.PasswordError = !reg.test( $scope.formData.Password );
 		$scope.ConfirmPasswordError = ( $scope.formData.ConfirmPassword != $scope.formData.Password );
 		//$scope.CheckOverallError();
