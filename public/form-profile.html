@@ -7,7 +7,7 @@
     </div>
 
     <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
-      <input type="text" class="form-control" name="name" placeholder="Enter Username" ng-model="formData.Username" ng-change="ValidateUsername()">
+      <input type="text" autofocus="true" class="form-control" name="name" placeholder="Enter Username" ng-model="formData.Username" ng-change="ValidateUsername()">
     </div>
 
   </div>
@@ -15,7 +15,7 @@
   <div class="row">
 
     <div class="col-lg-12" style="text-align: center;">
-      <span ng-show="UsernameError" class="text-danger error-font"><br>Username must be greater than 1 character, without special characters( Spaces, Numbers and '_' allowed ) <br><br></span>
+      <span ng-show="UsernameError" class="text-danger error-font"><br>Username must be greater than 2 characters, without special characters( Spaces, Numbers and '_' allowed ) <br><br></span>
     </div>
 
   </div>
@@ -24,11 +24,11 @@
 
   <div class="row" style="border: 0px solid red;">
 
-    <div class="col-sm-4" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+    <div class="col-sm-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
       <label for="email">Email</label>
     </div>
 
-    <div class="col-sm-8" style="height: 50px; line-height: 50px; padding-top: 8px;">
+    <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
       <input type="text" class="form-control" name="email" placeholder="Enter Email" ng-model="formData.Email" ng-change="ValidateEmail()">
     </div>
 
@@ -46,11 +46,11 @@
 
   <div class="row" style="border: 0px solid red;">
 
-    <div class="col-sm-4" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+    <div class="col-sm-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
       <label for="password">Password</label>
     </div>
 
-    <div class="col-sm-8" style="height: 50px; line-height: 50px; padding-top: 8px;">
+    <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
       <input type="password" class="form-control" name="password" placeholder="Enter Password" ng-model="formData.Password" ng-change="ValidatePassword()">
     </div>
 
@@ -68,11 +68,11 @@
 
   <div class="row" style="border: 0px solid red;">
 
-    <div class="col-sm-4" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+    <div class="col-sm-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
       <label for="cpassword">Confirm Password</label>
     </div>
 
-    <div class="col-sm-8" style="height: 50px; line-height: 50px; padding-top: 8px;">
+    <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
       <input type="password" class="form-control" name="cpassword" placeholder="Confirm Password" ng-model="formData.ConfirmPassword" ng-change="ValidateConfirmPassword()">
     </div>
 
@@ -90,11 +90,11 @@
 
   <div class="row" style="border: 0px solid red;">
 
-    <div class="col-sm-4" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+    <div class="col-sm-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
       <label for="phone">Enter Phone</label>
     </div>
 
-    <div class="col-sm-8" style="height: 50px; line-height: 50px; padding-top: 8px;">
+    <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
       <input type="number" class="form-control" name="phone" placeholder="Enter Phone Number" ng-model="formData.Phone" ng-change="ValidatePhone()">
     </div>
 
@@ -112,11 +112,11 @@
 
   <div class="row" style="border: 0px solid red;">
 
-    <div class="col-sm-4" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+    <div class="col-sm-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
       <label for="phone">Gender</label>
     </div>
 
-    <div class="col-sm-8" style="height: 50px; line-height: 50px; padding-top: 8px;">
+    <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
       <select path="gender" ng-model="formData.Gender" class="form-control select-menu">
         <option value="Female">Female</option>
         <option value="Male">Male</option>                  
@@ -127,11 +127,11 @@
 
   <div class="row" style="border: 0px solid red;">
 
-    <div class="col-sm-4" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+    <div class="col-sm-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
       <label for="phone">Date Of Birth:</label>
     </div>
 
-    <div class="col-sm-8" style="height: 50px; line-height: 50px; padding-top: 8px;">
+    <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
       
       <input id="datepicker" value="10/10/2011" ng-model="formData.DOB" title="datepicker" style="width: 100%" />
 

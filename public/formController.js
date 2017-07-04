@@ -26,7 +26,7 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 	$scope.ValidateEmail = function()
 	{
 		$scope.EmailTouched = true;
-		var reg = /^[a-zA-Z0-9_]+@[a-zA-Z0-9_]+\.[a-zA-Z0-9_]+\.*[a-zA-Z0-9_]+$/;
+		var reg = /^[a-zA-Z0-9_\.-]+@[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+\.*[a-zA-Z0-9_]+$/;
 		$scope.EmailError = !reg.test( $scope.formData.Email );
 		//$scope.CheckOverallError();
 	}
