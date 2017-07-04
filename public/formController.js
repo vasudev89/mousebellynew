@@ -75,11 +75,12 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		//$scope.formData.DOB = new Date( $scope.formData.DOB );
 
 		var date1 = new Date( $scope.formData.DOB );
+		
 		var date2 = new Date(  );
 		var timeDiff = Math.abs(date2.getTime() - date1.getTime());
 		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
 		
-		if( parseInt(diffDays/365) < 18 )
+		if( parseInt(diffDays/365) < 18 || parseInt(diffDays/365) > 60 )
 			$scope.DOBError = true;
 		else
 			$scope.DOBError = false;
