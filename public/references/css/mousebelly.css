@@ -159,6 +159,140 @@
     animation: spin 2s linear infinite;
 }
 
+.checkusernameinDBloader {
+    
+    position: relative;
+    border: none; /* Light grey */
+    border-bottom: 2px solid #3498db; /* Blue */
+    /*border-bottom: 16px double #770000;*/ /* Blue */
+    border-radius: 100%;
+    width:75px;
+    padding-top: 75px;
+    /*height: 100%;*/
+
+    z-index: 1;
+    
+    margin: auto; /* Will not center vertically and won't work in IE6/7. */
+    left: 0;
+    right: 0;
+
+    margin-top: -5px;
+
+    box-shadow: 0px 0px 5px #CCCCCC;
+
+    background-color: white;
+    animation: spin 2s linear infinite;
+}
+
+.checkusernameinDBinnerloader {
+    border-radius: 0%;
+    width: 75px;
+    position: relative;
+    
+    margin: auto;
+    left: 0;
+    right: 0;
+
+    margin-top: -90px;
+
+    border: 0px solid red;
+
+    z-index: 50;
+    
+    background-color: none;
+    
+    
+}
+
+.checkemailinDBloader {
+    
+    position: relative;
+    border: none; /* Light grey */
+    border-bottom: 2px solid #3498db; /* Blue */
+    /*border-bottom: 16px double #770000;*/ /* Blue */
+    border-radius: 100%;
+    width:75px;
+    padding-top: 75px;
+    /*height: 100%;*/
+
+    z-index: 1;
+    
+    margin: auto; /* Will not center vertically and won't work in IE6/7. */
+    left: 0;
+    right: 0;
+
+    
+    box-shadow: 0px 0px 5px #CCCCCC;
+
+    background-color: white;
+    animation: spin 2s linear infinite;
+}
+
+.checkemailinDBinnerloader {
+    border-radius: 0%;
+    width: 75px;
+    position: relative;
+    
+    margin: auto;
+    left: 0;
+    right: 0;
+
+    margin-top: -90px;
+
+    border: 0px solid red;
+
+    z-index: 50;
+    
+    background-color: none;
+    
+    
+}
+
+.checkphoneinDBloader {
+    
+    position: relative;
+    border: none; /* Light grey */
+    border-bottom: 2px solid #3498db; /* Blue */
+    /*border-bottom: 16px double #770000;*/ /* Blue */
+    border-radius: 100%;
+    width:75px;
+    padding-top: 75px;
+    /*height: 100%;*/
+
+    z-index: 1;
+    
+    margin: auto; /* Will not center vertically and won't work in IE6/7. */
+    left: 0;
+    right: 0;
+
+    margin-top: 20px;
+
+    box-shadow: 0px 0px 5px #CCCCCC;
+
+    background-color: white;
+    animation: spin 2s linear infinite;
+}
+
+.checkphoneinDBinnerloader {
+    border-radius: 0%;
+    width: 75px;
+    position: relative;
+    
+    margin: auto;
+    left: 0;
+    right: 0;
+
+    margin-top: -90px;
+
+    border: 0px solid red;
+
+    z-index: 50;
+    
+    background-color: none;
+    
+    
+}
+
 @keyframes spin1 {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }

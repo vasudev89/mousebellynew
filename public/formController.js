@@ -19,6 +19,16 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		$scope.formData.Username = $scope.formData.Username.toProperCase();
 		//$scope.CheckOverallError();
 	}
+
+	$scope.CheckUsernameInDB = function()
+	{
+		$("#checkusernameinDBloader").fadeIn(1500);
+
+		window.setTimeout(function(){
+			$("#checkusernameinDBloader").fadeOut(500);
+			//$("#loginloader").css({"display":"none"});
+		},3000);
+	}
 	
 	$scope.formData.Email = '';
 	$scope.EmailError = false;
@@ -29,6 +39,16 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		var reg = /^[a-zA-Z0-9_\.-]+@[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+\.*[a-zA-Z0-9_]+$/;
 		$scope.EmailError = !reg.test( $scope.formData.Email );
 		//$scope.CheckOverallError();
+	}
+
+	$scope.CheckEmailInDB = function()
+	{
+		$("#checkemailinDBloader").fadeIn(1500);
+
+		window.setTimeout(function(){
+			$("#checkemailinDBloader").fadeOut(500);
+			//$("#loginloader").css({"display":"none"});
+		},3000);
 	}
 
 	$scope.formData.Password = '';
@@ -62,6 +82,16 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		var reg = /^[7-9][0-9]{9}$/;
 		$scope.PhoneError = !reg.test( $scope.formData.Phone );
 		//$scope.CheckOverallError();
+	}
+
+	$scope.CheckPhoneInDB = function()
+	{
+		$("#checkphoneinDBloader").fadeIn(1500);
+
+		window.setTimeout(function(){
+			$("#checkphoneinDBloader").fadeOut(500);
+			//$("#loginloader").css({"display":"none"});
+		},3000);
 	}
     
 	$scope.formData.Gender = 'Female';
