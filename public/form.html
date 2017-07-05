@@ -10,6 +10,23 @@
           <br>
           <!-- the links to our nested states using relative paths -->
           <!-- add the active class if the state matches our ui-sref -->
+
+          <div id="signupErrorModal" class="modal fade" role="dialog">
+			  <div class="modal-dialog">
+
+			    <!-- Modal content-->
+			    <div class="modal-content" style="text-align: center; margin-top: 70px;">
+			      <div class="modal-body">
+			        <p ng-if="Part1Errors">Please fill in the Data</p>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+
+			  </div>
+			</div>
+
           <div id="status-buttons" class="text-center">
               <a ui-sref-active="active" ui-sref=".profile"><span>1</span> Profile</a>
               <a eat-click-if="ShowPart1Errors()" ui-sref-active="active" ui-sref=".interests" ng-click="" ><span>2</span> Address</a>

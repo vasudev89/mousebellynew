@@ -16,6 +16,8 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		{
 			$scope.UsernameError = true;
 			flag = true;
+
+			$('#signupErrorModal').modal('show');
 		}
 			
 
