@@ -8,7 +8,20 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
     $scope.formData = {};
 
     $scope.Part1Errors = true;
-    
+
+	$scope.ShowPart1Errors = function()
+	{
+		var flag = false;
+		if($scope.UsernameTouched == false) 
+		{
+			$scope.UsernameError = true;
+			flag = true;
+		}
+			
+
+		return flag;
+	}
+
     $scope.CheckPart1Errors = function()
     {
     	$scope.Part1Errors = !( 
