@@ -1,21 +1,255 @@
-<label>What's Your Console of Choice?</label>
-<div class="form-group">
-    <div class="radio">
-        <label>
-           <input type="radio" ng-model="formData.type" value="xbox" checked>
-           I like XBOX
-        </label>
+<div class="container" style="margin: auto; width: 100%;">
+
+  <div class="row" style="border: 0px solid red;">
+
+    
+
+    <div class="col-sm-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+      <label for="name">Username</label>
     </div>
-    <div class="radio">
-        <label>
-            <input type="radio" ng-model="formData.type" value="ps">
-            I like PS4
-        </label>
+
+    <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
+      <input type="text" autofocus="true" class="form-control" name="name" placeholder="Enter Username" ng-model="formData.Username" ng-change="ValidateUsername()" ng-blur="CheckUsernameInDB()">
+
+      <span ng-if="UsernameInDBValid" class="glyphicon glyphicon-ok" style="color: green; font-size: 20px; position: absolute; top: 15px; right: 25px;"></span>
+
+      <span ng-if="UsernameInDBInvalid" class="glyphicon glyphicon-remove" style="color: red; font-size: 20px; position: absolute; top: 15px; right: 25px;"></span>
+
+      <div id="checkusernameinDBloader" style="margin: auto; width: 100%;position: absolute; top: 15px; left: -2px; border: 0px solid red; display: none; text-align: center;">
+            <div class="checkusernameinDBloader" style=""></div>
+        
+        <span style="text-align: center; width: 100%;">
+          <img class="checkusernameinDBinnerloader" src="images/MB_black_small.png" style="">
+        </span>
+      </div>
+
     </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="UsernameInDBInvalid" class="text-danger error-font"><br>Username in Use <br><br></span>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="UsernameError" class="text-danger error-font"><br>Username must be greater than 2 characters, without special characters( Spaces, Numbers and '_' allowed ) <br><br></span>
+    </div>
+
+  </div>
+
+  
+
+  <!--  -->
+
+  <div class="row" style="border: 0px solid red;">
+
+    
+    <div class="col-sm-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+      <label for="email">Email</label>
+    </div>
+
+    <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
+      <input type="text" class="form-control" name="email" placeholder="Enter Email" ng-model="formData.Email" ng-change="ValidateEmail()" ng-blur="CheckEmailInDB()">
+
+      <span ng-if="EmailInDBValid" class="glyphicon glyphicon-ok" style="color: green; font-size: 20px; position: absolute; top: 15px; right: 25px;"></span>
+
+      <span ng-if="EmailInDBInvalid" class="glyphicon glyphicon-remove" style="color: red; font-size: 20px; position: absolute; top: 15px; right: 25px;"></span>
+
+      <div id="checkemailinDBloader" style="margin: auto; width: 100%;position: absolute;  left: -2px; top: 15px;border: 0px solid red; display: none; text-align: center;">
+            <div class="checkemailinDBloader" style=""></div>
+        
+        <span style="text-align: center; width: 100%;">
+          <img class="checkemailinDBinnerloader" src="images/MB_black_small.png" style="">
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="EmailInDBInvalid" class="text-danger error-font"><br>Email in Use <br><br></span>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="EmailError" class="text-danger error-font"><br>Invalid Email Format<br><br></span>
+    </div>
+
+  </div>
+
+  
+
+  <!--  -->
+
+  <div class="row" style="border: 0px solid red;">
+
+    <div class="col-sm-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+      <label for="password">Password</label>
+    </div>
+
+    <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
+      <input type="password" class="form-control" name="password" placeholder="Enter Password" ng-model="formData.Password" ng-change="ValidatePassword()">
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="PasswordError" class="text-danger error-font"><br>Password must be minimum 6 characters, with at least one letter, one number and one special character<br><br></span>
+    </div>
+
+  </div>
+
+  <!--  -->
+
+  <div class="row" style="border: 0px solid red;">
+
+    <div class="col-sm-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+      <label for="cpassword">Confirm</label>
+    </div>
+
+    <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
+      <input type="password" class="form-control" name="cpassword" placeholder="Confirm Password" ng-model="formData.ConfirmPassword" ng-change="ValidateConfirmPassword()">
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="ConfirmPasswordError" class="text-danger error-font"><br>Passwords do not Match<br><br></span>
+    </div>
+
+  </div>
+
+  <!--  -->
+
+  <div class="row" style="border: 0px solid red;">
+
+
+
+    <div class="col-sm-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+      <label for="phone">Enter Phone</label>
+    </div>
+
+    <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
+      <input type="text" class="form-control" name="phone" placeholder="Enter Phone Number" ng-model="formData.Phone" ng-change="ValidatePhone()" ng-blur="CheckPhoneInDB()">
+
+      <span ng-if="PhoneInDBValid" class="glyphicon glyphicon-ok" style="color: green; font-size: 20px; position: absolute; top: 15px; right: 25px;"></span>
+
+      <span ng-if="PhoneInDBInvalid" class="glyphicon glyphicon-remove" style="color: red; font-size: 20px; position: absolute; top: 15px; right: 25px;"></span>
+      
+
+      <div id="checkphoneinDBloader" style="margin: auto; width: 100%;position: absolute; left: -2px; top: 15px;border: 0px solid red; display: none; text-align: center;">
+            <div class="checkphoneinDBloader" style=""></div>
+        
+        <span style="text-align: center; width: 100%;">
+          <img class="checkphoneinDBinnerloader" src="images/MB_black_small.png" style="">
+        </span>
+      </div>
+
+
+    </div>
+
+    
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="PhoneInDBInvalid" class="text-danger error-font"><br>Phone Number in Use <br><br></span>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="PhoneError" class="text-danger error-font"><br>Phone Number must be a valid Indian Mobile Number<br><br></span>
+    </div>
+
+  </div>
+
+  <!--  -->
+
+  <div class="row" style="border: 0px solid red;">
+
+    <div class="col-sm-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+      <label for="phone">Gender</label>
+    </div>
+
+    <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
+      <select path="gender" ng-model="formData.Gender" class="form-control select-menu">
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>                  
+      </select>
+    </div>
+
+  </div>
+
+  <div class="row" style="border: 0px solid red;">
+
+    <div class="col-sm-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+      <label for="phone">Date Of Birth:</label>
+    </div>
+
+    <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
+      
+      <input id="datepicker" value="10/10/2011" ng-model="formData.DOB" ng-change="ValidateDOB()" title="datepicker" style="width: 100%" />
+
+    </div>
+
+    <script>
+            $(document).ready(function() {
+                // create DatePicker from input HTML element
+                $("#datepicker").kendoDatePicker();
+
+                $("#monthpicker").kendoDatePicker({
+                    // defines the start view
+                    start: "year",
+
+                    // defines when the calendar should return date
+                    depth: "year",
+
+                    // display month and year in the input
+                    format: "MMMM yyyy",
+
+                    // specifies that DateInput is used for masking the input element
+                    dateInput: false
+                });
+            });
+        </script>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="DOBError" class="text-danger error-font"><br>Age must be between 18 to 80<br><br></span>
+    </div>
+
+  </div>
+  
 </div>
 
+<br>
+<br>
+
 <div class="form-group row">
-<div class="col-xs-6 col-xs-offset-3">
+<div class="col-xs-6 col-xs-offset-3" ng-show="!Part1Errors && !Part2Errors">
     <a ui-sref="form.payment" class="btn btn-block btn-info">
     Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
     </a>

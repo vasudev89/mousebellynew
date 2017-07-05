@@ -12,8 +12,8 @@
           <!-- add the active class if the state matches our ui-sref -->
           <div id="status-buttons" class="text-center">
               <a ui-sref-active="active" ui-sref=".profile"><span>1</span> Profile</a>
-              <a ui-sref-active="active" ui-sref=".interests"><span>2</span> Address</a>
-              <a ui-sref-active="active" ui-sref=".payment"><span>3</span> Picture</a>
+              <a ui-sref-active="active" ui-sref=".interests" ng-show="!Part1Errors"><span>2</span> Address</a>
+              <a ui-sref-active="active" ui-sref=".payment" ng-show="!Part1Errors && !Part2Errors"><span>3</span> Picture</a>
           </div>
       </div>
       
@@ -26,9 +26,9 @@
   </div>
   
   <!-- show our formData as it is being typed -->
-  <pre>
+  <!-- <pre>
     {{ formData }}
-  </pre>
+  </pre> -->
 
 </div>
 </div>

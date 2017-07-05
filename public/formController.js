@@ -7,17 +7,65 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 // we will store all of our form data in this object
     $scope.formData = {};
 
+    $scope.Part1Errors = true;
+    
+    $scope.CheckPart1Errors = function()
+    {
+    	$scope.Part1Errors = !( 
+    							($scope.UsernameInDBValid ==  true)
+    							&&
+    							($scope.UsernameError == false)
+    							&&
+								($scope.UsernameTouched == true)
+								&&
+								($scope.EmailInDBValid ==  true)
+    							&&
+    							($scope.EmailError == false)
+    							&&
+								($scope.EmailTouched == true)
+								&&
+    							($scope.PasswordError == false)
+    							&&
+								($scope.PasswordTouched == true)
+								&&
+    							($scope.ConfirmPasswordError == false)
+    							&&
+								($scope.ConfirmPasswordTouched == true)
+								&&
+								($scope.PhoneInDBValid ==  true)
+    							&&
+    							($scope.PhoneError == false)
+    							&&
+								($scope.PhoneTouched == true)
+								&&
+    							($scope.DOBError == false)
+    							&&
+								($scope.DOBTouched == true)
+    						  );
+    	
+    }
+
+    $scope.Part2Errors = true;
+
+    $scope.CheckPart2Errors = function()
+    {
+
+    }
+
     $scope.formData.Username = '';
 	$scope.UsernameError = false;
 	$scope.UsernameTouched = false;
 	$scope.ValidateUsername = function()
 	{
+		$scope.UsernameInDBValid = false;
+		$scope.UsernameInDBInvalid = false;
+
 		$scope.UsernameTouched = true;
 		var reg = /^.[a-zA-Z0-9_ ]{2,}$/;
 		$scope.UsernameError = !reg.test( $scope.formData.Username );
 
 		$scope.formData.Username = $scope.formData.Username.toProperCase();
-		//$scope.CheckOverallError();
+		$scope.CheckPart1Errors();
 	}
 
 	$scope.UsernameInDBValid = false;
@@ -54,6 +102,8 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		            else if ( response.data.message == 'Username Available' )
 		            	$scope.UsernameInDBValid = true;
 
+		            $scope.CheckPart1Errors();
+
 		    }, 
 		    function(response) { // optional
 		            console.log( "Failed" );
@@ -67,10 +117,14 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 	$scope.EmailTouched = false;
 	$scope.ValidateEmail = function()
 	{
+		$scope.EmailInDBValid = false;
+		$scope.EmailInDBInvalid = false;
+		
 		$scope.EmailTouched = true;
 		var reg = /^[a-zA-Z0-9_\.-]+@[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+\.*[a-zA-Z0-9_]+$/;
 		$scope.EmailError = !reg.test( $scope.formData.Email );
 		//$scope.CheckOverallError();
+		$scope.CheckPart1Errors();
 	}
 
 	$scope.EmailInDBValid = false;
@@ -107,6 +161,8 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		            else if ( response.data.message == 'Email Available' )
 		            	$scope.EmailInDBValid = true;
 
+
+		            $scope.CheckPart1Errors();
 		    }, 
 		    function(response) { // optional
 		            console.log( "Failed" );
@@ -128,6 +184,7 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		$scope.PasswordError = !reg.test( $scope.formData.Password );
 		$scope.ConfirmPasswordError = ( $scope.formData.ConfirmPassword != $scope.formData.Password );
 		//$scope.CheckOverallError();
+		$scope.CheckPart1Errors();
 	}
 
 	$scope.formData.ConfirmPassword = '';
@@ -138,6 +195,7 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		$scope.ConfirmPasswordTouched = true;
 		$scope.ConfirmPasswordError = ( $scope.formData.ConfirmPassword != $scope.formData.Password );
 		//$scope.CheckOverallError();
+		$scope.CheckPart1Errors();
 	}
 
 	$scope.formData.Phone = '';
@@ -145,10 +203,14 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 	$scope.PhoneTouched = false;
 	$scope.ValidatePhone = function()
 	{
+		$scope.PhoneInDBValid = false;
+		$scope.PhoneInDBInvalid = false;
+
 		$scope.PhoneTouched = true;
 		var reg = /^[7-9][0-9]{9}$/;
 		$scope.PhoneError = !reg.test( $scope.formData.Phone );
 		//$scope.CheckOverallError();
+		$scope.CheckPart1Errors();
 	}
 
 	$scope.PhoneInDBValid = false;
@@ -185,6 +247,8 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		            else if ( response.data.message == 'Phone Available' )
 		            	$scope.PhoneInDBValid = true;
 
+		            $scope.CheckPart1Errors();
+
 		    }, 
 		    function(response) { // optional
 		            console.log( "Failed" );
@@ -215,6 +279,8 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		else
 			$scope.DOBError = false;
 		//$scope.CheckOverallError();
+
+		$scope.CheckPart1Errors();
 	}
 
     // function to process the form
