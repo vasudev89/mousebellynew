@@ -166,8 +166,8 @@
     border-bottom: 2px solid #3498db; /* Blue */
     /*border-bottom: 16px double #770000;*/ /* Blue */
     border-radius: 100%;
-    width:75px;
-    padding-top: 75px;
+    width:55px;
+    padding-top: 55px;
     /*height: 100%;*/
 
     z-index: 1;
@@ -176,7 +176,7 @@
     left: 0;
     right: 0;
 
-    margin-top: -5px;
+    margin-top: -20px;
 
     box-shadow: 0px 0px 5px #CCCCCC;
 
@@ -186,14 +186,14 @@
 
 .checkusernameinDBinnerloader {
     border-radius: 0%;
-    width: 75px;
+    width: 55px;
     position: relative;
     
     margin: auto;
     left: 0;
     right: 0;
 
-    margin-top: -90px;
+    margin-top: -110px;
 
     border: 0px solid red;
 
@@ -211,8 +211,8 @@
     border-bottom: 2px solid #3498db; /* Blue */
     /*border-bottom: 16px double #770000;*/ /* Blue */
     border-radius: 100%;
-    width:75px;
-    padding-top: 75px;
+    width:55px;
+    padding-top: 55px;
     /*height: 100%;*/
 
     z-index: 1;
@@ -220,6 +220,8 @@
     margin: auto; /* Will not center vertically and won't work in IE6/7. */
     left: 0;
     right: 0;
+
+    margin-top: -20px;
 
     
     box-shadow: 0px 0px 5px #CCCCCC;
@@ -230,14 +232,14 @@
 
 .checkemailinDBinnerloader {
     border-radius: 0%;
-    width: 75px;
+    width: 55px;
     position: relative;
     
     margin: auto;
     left: 0;
     right: 0;
 
-    margin-top: -90px;
+    margin-top: -110px;
 
     border: 0px solid red;
 
@@ -255,8 +257,8 @@
     border-bottom: 2px solid #3498db; /* Blue */
     /*border-bottom: 16px double #770000;*/ /* Blue */
     border-radius: 100%;
-    width:75px;
-    padding-top: 75px;
+    width:55px;
+    padding-top: 55px;
     /*height: 100%;*/
 
     z-index: 1;
@@ -265,7 +267,7 @@
     left: 0;
     right: 0;
 
-    margin-top: 20px;
+    margin-top: -20px;
 
     box-shadow: 0px 0px 5px #CCCCCC;
 
@@ -275,14 +277,14 @@
 
 .checkphoneinDBinnerloader {
     border-radius: 0%;
-    width: 75px;
+    width: 55px;
     position: relative;
     
     margin: auto;
     left: 0;
     right: 0;
 
-    margin-top: -90px;
+    margin-top: -110px;
 
     border: 0px solid red;
 
