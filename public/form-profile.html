@@ -11,6 +11,10 @@
     <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
       <input type="text" autofocus="true" class="form-control" name="name" placeholder="Enter Username" ng-model="formData.Username" ng-change="ValidateUsername()" ng-blur="CheckUsernameInDB()">
 
+      <span ng-if="UsernameInDBValid" class="glyphicon glyphicon-ok" style="color: green; font-size: 20px; position: absolute; top: 15px; right: 25px;"></span>
+
+      <span ng-if="UsernameInDBInvalid" class="glyphicon glyphicon-remove" style="color: red; font-size: 20px; position: absolute; top: 15px; right: 25px;"></span>
+
       <div id="checkusernameinDBloader" style="margin: auto; width: 100%;position: absolute; top: 15px; left: -2px; border: 0px solid red; display: none; text-align: center;">
             <div class="checkusernameinDBloader" style=""></div>
         
@@ -19,6 +23,14 @@
         </span>
       </div>
 
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="UsernameInDBInvalid" class="text-danger error-font"><br>Username in Use <br><br></span>
     </div>
 
   </div>
@@ -45,6 +57,10 @@
     <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
       <input type="text" class="form-control" name="email" placeholder="Enter Email" ng-model="formData.Email" ng-change="ValidateEmail()" ng-blur="CheckEmailInDB()">
 
+      <span ng-if="EmailInDBValid" class="glyphicon glyphicon-ok" style="color: green; font-size: 20px; position: absolute; top: 15px; right: 25px;"></span>
+
+      <span ng-if="EmailInDBInvalid" class="glyphicon glyphicon-remove" style="color: red; font-size: 20px; position: absolute; top: 15px; right: 25px;"></span>
+
       <div id="checkemailinDBloader" style="margin: auto; width: 100%;position: absolute;  left: -2px; top: 15px;border: 0px solid red; display: none; text-align: center;">
             <div class="checkemailinDBloader" style=""></div>
         
@@ -53,6 +69,14 @@
         </span>
       </div>
 
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="EmailInDBInvalid" class="text-danger error-font"><br>Email in Use <br><br></span>
     </div>
 
   </div>
@@ -122,7 +146,12 @@
     </div>
 
     <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
-      <input type="number" class="form-control" name="phone" placeholder="Enter Phone Number" ng-model="formData.Phone" ng-change="ValidatePhone()" ng-blur="CheckPhoneInDB()">
+      <input type="text" class="form-control" name="phone" placeholder="Enter Phone Number" ng-model="formData.Phone" ng-change="ValidatePhone()" ng-blur="CheckPhoneInDB()">
+
+      <span ng-if="PhoneInDBValid" class="glyphicon glyphicon-ok" style="color: green; font-size: 20px; position: absolute; top: 15px; right: 25px;"></span>
+
+      <span ng-if="PhoneInDBInvalid" class="glyphicon glyphicon-remove" style="color: red; font-size: 20px; position: absolute; top: 15px; right: 25px;"></span>
+      
 
       <div id="checkphoneinDBloader" style="margin: auto; width: 100%;position: absolute; left: -2px; top: 15px;border: 0px solid red; display: none; text-align: center;">
             <div class="checkphoneinDBloader" style=""></div>
@@ -132,12 +161,19 @@
         </span>
       </div>
 
+
     </div>
 
     
   </div>
 
-  
+  <div class="row">
+
+    <div class="col-lg-12" style="text-align: center;">
+      <span ng-show="PhoneInDBInvalid" class="text-danger error-font"><br>Phone Number in Use <br><br></span>
+    </div>
+
+  </div>
 
   <div class="row">
 

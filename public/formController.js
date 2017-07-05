@@ -20,14 +20,46 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		//$scope.CheckOverallError();
 	}
 
+	$scope.UsernameInDBValid = false;
+	$scope.UsernameInDBInvalid = false;
+
 	$scope.CheckUsernameInDB = function()
 	{
-		$("#checkusernameinDBloader").fadeIn(1500);
+		if( $scope.formData.Username != undefined && $scope.formData.Username != '' )
+		{
+			$("#checkusernameinDBloader").fadeIn(1500);
 
-		window.setTimeout(function(){
-			$("#checkusernameinDBloader").fadeOut(500);
-			//$("#loginloader").css({"display":"none"});
-		},3000);
+			$scope.UsernameInDBValid = false;
+			$scope.UsernameInDBInvalid = false;
+
+			var json={"Username":$scope.formData.Username};
+
+			console.log(json);
+
+			$http({
+			        url: '/checkusernameindb',
+			        method: "POST",
+			        data: json,
+			        json: true,
+			        headers: {
+						        "content-type": "application/json",  // <--Very important!!!
+						    }
+			    })
+		    .then(function(response) {
+		            
+		            $("#checkusernameinDBloader").fadeOut(500);
+
+		            if( response.data.message == 'Username In Use' )
+		            	$scope.UsernameInDBInvalid = true;
+		            else if ( response.data.message == 'Username Available' )
+		            	$scope.UsernameInDBValid = true;
+
+		    }, 
+		    function(response) { // optional
+		            console.log( "Failed" );
+		            $("#checkusernameinDBloader").fadeOut(500);
+		    });
+		}
 	}
 	
 	$scope.formData.Email = '';
@@ -41,15 +73,50 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		//$scope.CheckOverallError();
 	}
 
+	$scope.EmailInDBValid = false;
+	$scope.EmailInDBInvalid = false;
+
 	$scope.CheckEmailInDB = function()
 	{
-		$("#checkemailinDBloader").fadeIn(1500);
+		if( $scope.formData.Email != undefined && $scope.formData.Email != '' )
+		{
+			$("#checkemailinDBloader").fadeIn(1500);
 
-		window.setTimeout(function(){
-			$("#checkemailinDBloader").fadeOut(500);
-			//$("#loginloader").css({"display":"none"});
-		},3000);
+			$scope.EmailInDBValid = false;
+			$scope.EmailInDBInvalid = false;
+
+			var json={"Email":$scope.formData.Email};
+
+			console.log(json);
+
+			$http({
+			        url: '/checkemailindb',
+			        method: "POST",
+			        data: json,
+			        json: true,
+			        headers: {
+						        "content-type": "application/json",  // <--Very important!!!
+						    }
+			    })
+		    .then(function(response) {
+		            
+		            $("#checkemailinDBloader").fadeOut(500);
+
+		            if( response.data.message == 'Email In Use' )
+		            	$scope.EmailInDBInvalid = true;
+		            else if ( response.data.message == 'Email Available' )
+		            	$scope.EmailInDBValid = true;
+
+		    }, 
+		    function(response) { // optional
+		            console.log( "Failed" );
+		            $("#checkemailinDBloader").fadeOut(500);
+		    });
+		}
+		
 	}
+
+	
 
 	$scope.formData.Password = '';
 	$scope.PasswordError = false;
@@ -84,16 +151,49 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		//$scope.CheckOverallError();
 	}
 
+	$scope.PhoneInDBValid = false;
+	$scope.PhoneInDBInvalid = false;
+
 	$scope.CheckPhoneInDB = function()
 	{
-		$("#checkphoneinDBloader").fadeIn(1500);
+		if( $scope.formData.Phone != undefined && $scope.formData.Phone != '' )
+		{
+			$("#checkphoneinDBloader").fadeIn(1500);
 
-		window.setTimeout(function(){
-			$("#checkphoneinDBloader").fadeOut(500);
-			//$("#loginloader").css({"display":"none"});
-		},3000);
+			$scope.PhoneInDBValid = false;
+			$scope.PhoneInDBInvalid = false;
+
+			var json={"Phone":$scope.formData.Phone};
+
+			console.log(json);
+
+			$http({
+			        url: '/checkphoneindb',
+			        method: "POST",
+			        data: json,
+			        json: true,
+			        headers: {
+						        "content-type": "application/json",  // <--Very important!!!
+						    }
+			    })
+		    .then(function(response) {
+		            
+		            $("#checkphoneinDBloader").fadeOut(500);
+
+		            if( response.data.message == 'Phone In Use' )
+		            	$scope.PhoneInDBInvalid = true;
+		            else if ( response.data.message == 'Phone Available' )
+		            	$scope.PhoneInDBValid = true;
+
+		    }, 
+		    function(response) { // optional
+		            console.log( "Failed" );
+		            $("#checkphoneinDBloader").fadeOut(500);
+		    });
+		}
+		
 	}
-    
+
 	$scope.formData.Gender = 'Female';
 
 	$scope.formData.DOB = '';
