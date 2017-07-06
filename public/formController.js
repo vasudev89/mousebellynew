@@ -11,17 +11,10 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 
 	$scope.ShowPart1Errors = function()
 	{
-		var flag = false;
-		if($scope.UsernameTouched == false) 
-		{
-			$scope.UsernameError = true;
-			flag = true;
-
+		if($scope.Part1Errors)
 			$('#signupErrorModal').modal('show');
-		}
-			
-
-		return flag;
+		
+		return $scope.Part1Errors;
 	}
 
     $scope.CheckPart1Errors = function()
