@@ -291,6 +291,63 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		$scope.CheckPart1Errors();
 	}
 
+	$scope.formData.Street = '';
+	$scope.StreetError = false;
+	$scope.StreetTouched = false;
+	$scope.ValidateStreet = function()
+	{
+		$scope.StreetTouched = true;
+		var reg = /^$/;
+		$scope.StreetError = reg.test( $scope.formData.Street );
+		//$scope.CheckPart1Errors();
+	}
+
+	$scope.formData.Locality = '';
+	$scope.LocalityError = false;
+	$scope.LocalityTouched = false;
+	$scope.ValidateLocality = function()
+	{
+		$scope.LocalityTouched = true;
+		var reg = /^$/;
+		$scope.LocalityError = reg.test( $scope.formData.Locality );
+		//$scope.CheckPart1Errors();
+	}
+
+	$scope.formData.City = '';
+	$scope.CityError = false;
+	$scope.CityTouched = false;
+	$scope.ValidateCity = function()
+	{
+		$scope.CityTouched = true;
+		var reg = /^$/;
+		$scope.CityError = reg.test( $scope.formData.City );
+		//$scope.CheckPart1Errors();
+	}
+
+	$scope.formData.State = '';
+	$scope.StateError = false;
+	$scope.StateTouched = false;
+	$scope.ValidateState = function()
+	{
+		$scope.StateTouched = true;
+		var reg = /^$/;
+		$scope.StateError = reg.test( $scope.formData.State );
+		//$scope.CheckPart1Errors();
+	}
+
+	$scope.formData.Country = 'India';
+
+	$scope.formData.Zipcode = '';
+	$scope.ZipcodeError = false;
+	$scope.ZipcodeTouched = false;
+	$scope.ValidateZipcode = function()
+	{
+		$scope.ZipcodeTouched = true;
+		var reg = /^[0-9]{6,6}$/;
+		$scope.ZipcodeError = !reg.test( $scope.formData.Zipcode );
+		//$scope.CheckPart1Errors();
+	}
+
     // function to process the form
     $scope.processForm = function() {
         alert('awesome!');  
