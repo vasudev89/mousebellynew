@@ -9,7 +9,7 @@
     </div>
 
     <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
-      <input type="text" autofocus="true" class="form-control" name="name" placeholder="Enter Username" ng-model="formData.Username" ng-change="ValidateUsername()" ng-blur="CheckUsernameInDB()">
+      <input type="text" autofocus="true" class="form-control" ng-style="(UsernameError == true || UsernameInDBInvalid == true) && {'border':'1px solid #990000'}" name="name" placeholder="Enter Username" ng-model="formData.Username" ng-change="ValidateUsername()" ng-blur="CheckUsernameInDB()">
 
       <span ng-if="UsernameInDBValid" class="glyphicon glyphicon-ok" style="color: green; font-size: 20px; position: absolute; top: 15px; right: 25px;"></span>
 
@@ -38,7 +38,7 @@
   <div class="row">
 
     <div class="col-lg-12" style="text-align: center;">
-      <span ng-show="UsernameError" class="text-danger error-font"><br>Username must be greater than 2 characters, without special characters( Spaces, Numbers and '_' allowed ) <br><br></span>
+      <span ng-show="UsernameError" class="text-danger error-font"><br>Username must be greater than 2 characters( Spaces, Numbers and '_' allowed ) <br><br></span>
     </div>
 
   </div>
@@ -55,7 +55,7 @@
     </div>
 
     <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
-      <input type="text" class="form-control" name="email" placeholder="Enter Email" ng-model="formData.Email" ng-change="ValidateEmail()" ng-blur="CheckEmailInDB()">
+      <input type="text" class="form-control" name="email" placeholder="Enter Email" ng-model="formData.Email" ng-change="ValidateEmail()" ng-blur="CheckEmailInDB()" ng-style="(EmailError == true || EmailInDBInvalid == true) && {'border':'1px solid #990000'}">
 
       <span ng-if="EmailInDBValid" class="glyphicon glyphicon-ok" style="color: green; font-size: 20px; position: absolute; top: 15px; right: 25px;"></span>
 
@@ -100,7 +100,7 @@
     </div>
 
     <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
-      <input type="password" class="form-control" name="password" placeholder="Enter Password" ng-model="formData.Password" ng-change="ValidatePassword()">
+      <input type="password" class="form-control" name="password" placeholder="Enter Password" ng-model="formData.Password" ng-change="ValidatePassword()" ng-style="(PasswordError == true) && {'border':'1px solid #990000'}">
     </div>
 
   </div>
@@ -122,7 +122,7 @@
     </div>
 
     <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
-      <input type="password" class="form-control" name="cpassword" placeholder="Confirm Password" ng-model="formData.ConfirmPassword" ng-change="ValidateConfirmPassword()">
+      <input type="password" class="form-control" name="cpassword" placeholder="Confirm Password" ng-model="formData.ConfirmPassword" ng-change="ValidateConfirmPassword()" ng-style="(ConfirmPasswordError == true) && {'border':'1px solid #990000'}">
     </div>
 
   </div>
@@ -146,7 +146,7 @@
     </div>
 
     <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
-      <input type="text" class="form-control" name="phone" placeholder="Enter Phone Number" ng-model="formData.Phone" ng-change="ValidatePhone()" ng-blur="CheckPhoneInDB()">
+      <input type="text" class="form-control" name="phone" placeholder="Enter Phone Number" ng-model="formData.Phone" ng-change="ValidatePhone()" ng-blur="CheckPhoneInDB()" ng-style="(PhoneError == true || PhoneInDBInvalid == true) && {'border':'1px solid #990000'}">
 
       <span ng-if="PhoneInDBValid" class="glyphicon glyphicon-ok" style="color: green; font-size: 20px; position: absolute; top: 15px; right: 25px;"></span>
 
@@ -208,7 +208,7 @@
 
     <div class="col-sm-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
       
-      <input id="datepicker" value="10/10/2011" ng-model="formData.DOB" ng-change="ValidateDOB()" title="datepicker" style="width: 100%" />
+      <input id="datepicker" value="10/10/2011" ng-model="formData.DOB" ng-change="ValidateDOB()" title="datepicker" style="width: 100%" ng-style="(DOBError == true) && {'border':'1px solid #990000'}">
 
     </div>
 

@@ -17,7 +17,12 @@
 			    <!-- Modal content-->
 			    <div class="modal-content" style="text-align: center; margin-top: 70px;">
 			      <div class="modal-body">
-			        <p ng-if="Part1Errors">Please fill in the Data</p>
+			      	<label class="signupMouselabel" style="">Mouse</label>
+					<label class="signupBellylabel" style="">Belly</label>
+					<br>
+					<br>
+			        <p ng-if="Part1Errors" class="alert alert-danger" style="font-size: 32px; margin: auto; width: 80%;">Please fill in the data for part 1 correctly.</p>
+			        <br>
 			      </div>
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
