@@ -81,7 +81,7 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 
 	$scope.CheckUsernameInDB = function()
 	{
-		if( $scope.formData.Username != undefined && $scope.formData.Username != '' )
+		if( $scope.formData.Username != undefined && $scope.formData.Username != '' && $scope.UsernameError != true )
 		{
 			$("#checkusernameinDBloader").fadeIn(1500);
 
@@ -140,7 +140,7 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 
 	$scope.CheckEmailInDB = function()
 	{
-		if( $scope.formData.Email != undefined && $scope.formData.Email != '' )
+		if( $scope.formData.Email != undefined && $scope.formData.Email != '' && $scope.EmailError != true )
 		{
 			$("#checkemailinDBloader").fadeIn(1500);
 
@@ -226,7 +226,7 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 
 	$scope.CheckPhoneInDB = function()
 	{
-		if( $scope.formData.Phone != undefined && $scope.formData.Phone != '' )
+		if( $scope.formData.Phone != undefined && $scope.formData.Phone != '' && $scope.PhoneError != true )
 		{
 			$("#checkphoneinDBloader").fadeIn(1500);
 
