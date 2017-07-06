@@ -353,4 +353,68 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
         alert('awesome!');  
     };
 
+
+    $scope.LoadPart2 = function()
+    {
+    	$http.get('http://maps.google.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false')
+    	.then(function(mapData) {
+	      	console.log( mapData.data.results[0].geometry.location )
+
+	      	try
+	      	{
+	      		window.setTimeout(function(){
+
+	      			//var myLatLng = new google.maps.LatLng(-25.363882,131.044922);
+
+	      			latLng = new google.maps.LatLng(-8.064903, -34.896872)
+					  var mapOptions = {
+					    center: latLng,
+					    zoom: 16,
+					    mapTypeId: google.maps.MapTypeId.ROADMAP
+					  };
+					  var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+
+					  var marker = new google.maps.Marker({
+					      position: latLng,
+					      title:"Hello World!",
+					      visible: true
+					  });
+					  marker.setMap(map);
+
+	      		},500);
+
+	      		
+	      	}
+	      	catch(e)
+	      	{
+	      		console.log(e);
+	      	}
+
+	      	
+	    });	
+    }
+
+    
+
+
+ //    $http({
+	//         url: 'https://maps.googleapis.com/maps/api/place/autocomplete/xml?input=Delhi&key=AIzaSyAmX6y4xVxgBDkB5VOIcPp_Uh3aNgFxQBY',
+	//         method: "GET",
+	//         json: true,
+	//         headers: {
+	// 			        'Access-Control-Allow-Origin' : '*',
+	// 			'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT',
+	// 			'Content-Type': 'application/json',
+	// 			'Accept': 'application/json'
+	// 			    }
+	//     })
+	// .then(function(response) {
+	        
+	//         console.log( response );
+	// }, 
+	// function(response) { // optional
+	//         console.log( "Failed" );
+	//         console.log( response );
+	// });
+
 }]);

@@ -36,7 +36,7 @@
           		<!-- eat-click-if="ShowPart1Errors()" -->
 
               <a ui-sref-active="active" ui-sref=".profile"><span>1</span> Profile</a>
-              <a  ui-sref-active="active" ui-sref=".interests" ng-click="" ><span>2</span> Address</a>
+              <a  ui-sref-active="active" ui-sref=".interests" ng-click="LoadPart2()" ><span>2</span> Address</a>
               <a ui-sref-active="active" ui-sref=".payment" ng-show="!Part1Errors && !Part2Errors"><span>3</span> Picture</a>
           </div>
       </div>
