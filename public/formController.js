@@ -53,12 +53,6 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
     	
     }
 
-    $scope.Part2Errors = true;
-
-    $scope.CheckPart2Errors = function()
-    {
-
-    }
 
     $scope.formData.Username = '';
 	$scope.UsernameError = false;
@@ -291,6 +285,8 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		$scope.CheckPart1Errors();
 	}
 
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	$scope.formData.Street = '';
 	$scope.StreetError = false;
 	$scope.StreetTouched = false;
@@ -299,7 +295,7 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		$scope.StreetTouched = true;
 		var reg = /^$/;
 		$scope.StreetError = reg.test( $scope.formData.Street );
-		//$scope.CheckPart1Errors();
+		$scope.CheckPart2Errors();
 	}
 
 	$scope.formData.Locality = '';
@@ -310,7 +306,7 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		$scope.LocalityTouched = true;
 		var reg = /^$/;
 		$scope.LocalityError = reg.test( $scope.formData.Locality );
-		//$scope.CheckPart1Errors();
+		$scope.CheckPart2Errors();
 	}
 
 	$scope.formData.City = '';
@@ -321,7 +317,7 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		$scope.CityTouched = true;
 		var reg = /^$/;
 		$scope.CityError = reg.test( $scope.formData.City );
-		//$scope.CheckPart1Errors();
+		$scope.CheckPart2Errors();
 	}
 
 	$scope.formData.State = '';
@@ -332,7 +328,7 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		$scope.StateTouched = true;
 		var reg = /^$/;
 		$scope.StateError = reg.test( $scope.formData.State );
-		//$scope.CheckPart1Errors();
+		$scope.CheckPart2Errors();
 	}
 
 	$scope.formData.Country = 'India';
@@ -345,8 +341,80 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		$scope.ZipcodeTouched = true;
 		var reg = /^[0-9]{6,6}$/;
 		$scope.ZipcodeError = !reg.test( $scope.formData.Zipcode );
-		//$scope.CheckPart1Errors();
+		$scope.CheckPart2Errors();
 	}
+
+	$scope.Part2Errors = true;
+
+    $scope.CheckPart2Errors = function()
+    {
+    	$scope.Part2Errors = !( 
+    							($scope.StreetError == false)
+    							&&
+								($scope.StreetTouched == true)
+								&&
+								($scope.LocalityError == false)
+    							&&
+								($scope.LocalityTouched == true)
+								&&
+    							($scope.CityError == false)
+    							&&
+								($scope.CityTouched == true)
+								&&
+    							($scope.StateError == false)
+    							&&
+								($scope.StateTouched == true)
+								&&
+								($scope.ZipcodeError == false)
+    							&&
+								($scope.ZipcodeTouched == true)
+								
+    						  );
+
+    	if( !$scope.Part2Errors )
+    	{
+    		var searchString = $scope.formData.Locality + ", " + $scope.formData.City + ", " + $scope.formData.State + ", " + $scope.formData.Zipcode + ", " +  $scope.formData.Country;
+
+    		console.log( searchString );
+
+    		$http.get('http://maps.google.com/maps/api/geocode/json?address='+searchString+'&sensor=false')
+		    	.then(function(mapData) {
+			      	console.log( mapData.data.results[0].geometry.location )
+
+			      	try
+			      	{
+			      		window.setTimeout(function(){
+
+			      			//var myLatLng = new google.maps.LatLng(-25.363882,131.044922);
+
+			      			latLng = new google.maps.LatLng( mapData.data.results[0].geometry.location.lat , mapData.data.results[0].geometry.location.lng)
+							  var mapOptions = {
+							    center: latLng,
+							    zoom: 16,
+							    mapTypeId: google.maps.MapTypeId.ROADMAP
+							  };
+							  var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+
+							  var marker = new google.maps.Marker({
+							      position: latLng,
+							      title:"Hello World!",
+							      visible: true
+							  });
+							  marker.setMap(map);
+
+			      		},500);
+
+			      		
+			      	}
+			      	catch(e)
+			      	{
+			      		console.log(e);
+			      	}
+
+			      	
+			    });	
+    	}
+    }
 
     // function to process the form
     $scope.processForm = function() {
@@ -356,42 +424,42 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 
     $scope.LoadPart2 = function()
     {
-    	$http.get('http://maps.google.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false')
-    	.then(function(mapData) {
-	      	console.log( mapData.data.results[0].geometry.location )
+    	// $http.get('http://maps.google.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false')
+    	// .then(function(mapData) {
+	    //   	console.log( mapData.data.results[0].geometry.location )
 
-	      	try
-	      	{
-	      		window.setTimeout(function(){
+	    //   	try
+	    //   	{
+	    //   		window.setTimeout(function(){
 
-	      			//var myLatLng = new google.maps.LatLng(-25.363882,131.044922);
+	    //   			//var myLatLng = new google.maps.LatLng(-25.363882,131.044922);
 
-	      			latLng = new google.maps.LatLng(-8.064903, -34.896872)
-					  var mapOptions = {
-					    center: latLng,
-					    zoom: 16,
-					    mapTypeId: google.maps.MapTypeId.ROADMAP
-					  };
-					  var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+	    //   			latLng = new google.maps.LatLng(-8.064903, -34.896872)
+					//   var mapOptions = {
+					//     center: latLng,
+					//     zoom: 16,
+					//     mapTypeId: google.maps.MapTypeId.ROADMAP
+					//   };
+					//   var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
 
-					  var marker = new google.maps.Marker({
-					      position: latLng,
-					      title:"Hello World!",
-					      visible: true
-					  });
-					  marker.setMap(map);
+					//   var marker = new google.maps.Marker({
+					//       position: latLng,
+					//       title:"Hello World!",
+					//       visible: true
+					//   });
+					//   marker.setMap(map);
 
-	      		},500);
+	    //   		},500);
 
 	      		
-	      	}
-	      	catch(e)
-	      	{
-	      		console.log(e);
-	      	}
+	    //   	}
+	    //   	catch(e)
+	    //   	{
+	    //   		console.log(e);
+	    //   	}
 
 	      	
-	    });	
+	    // });	
     }
 
     
