@@ -379,10 +379,10 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 
     		$http.get('http://maps.google.com/maps/api/geocode/json?address='+searchString+'&sensor=false')
 		    	.then(function(mapData) {
-			      	console.log( mapData.data.results[0].geometry.location )
-
 			      	try
 			      	{
+			      		console.log( mapData.data.results[0].geometry.location );
+
 			      		window.setTimeout(function(){
 
 			      			//var myLatLng = new google.maps.LatLng(-25.363882,131.044922);
