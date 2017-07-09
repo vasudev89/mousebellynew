@@ -1,9 +1,28 @@
 <div class="text-center">
     
-	<button type="submit" class="btn btn-danger">Submit</button>
-    
-    <img src="images/profile_male.png" style="margin: auto; width: 80%;" ng-if="formData.Gender == 'Male'">
-    <img src="images/profile_female.png" style="margin: auto; width: 80%;" ng-if="formData.Gender == 'Female'" >
+	<button class="btn btn-danger" ng-click="processForm()">Submit Signup</button>
 
+	<br>
+	<br>
+
+	<button class="btn btn-success" style="padding-left: 20px; padding-right: 20px;" ng-click="openFileChooser();"><span class="glyphicon glyphicon-upload"></span> &nbsp;&nbsp; Choose Image</button>
+
+	<br>
+
+	<button class="btn btn-link" style="padding-left: 20px; padding-right: 20px; margin-top: 20px;" ng-click="imageLoaded = false" ng-show="imageLoaded"><span class="glyphicon glyphicon-upload"></span> &nbsp;&nbsp; Delete</button>
+	
+	<br>
+	<input type="file" multiple id="trigger" ng-show="false" onchange="angular.element(this).scope().setFile(this)" accept="video/*|image/*" file-model="myFile"/>
+
+	<div style="margin: auto; width: 80%; text-align: center; margin-top: 20px;">
+
+		<img src="images/profile_male.png" style="max-width: 100%;" ng-if="!imageLoaded && formData.Gender == 'Male'">
+	    <img src="images/profile_female.png" style="max-width: 100%;" ng-if="!imageLoaded && formData.Gender == 'Female'" >
+
+	    <img id="imageLoaded" style="max-width: 100%;" ng-if="imageLoaded" >
+
+	</div>
+
+    
     
 </div>

@@ -17,6 +17,19 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		else
 			$scope.Part1Filled = true;
 		
+		console.log( targetImage );
+
+		console.log( $scope.imageLoaded );
+
+		if( targetImage != undefined )
+		{
+			$scope.imageLoaded = true;
+
+			window.setTimeout(function(){
+				$('#imageLoaded').attr('src', targetImage);
+			},500);
+			
+		}
 
 		if( $scope.Part2Errors == false )
 		{
@@ -485,6 +498,130 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
     	}
     }
 
+    $scope.imageLoaded = false;
+
+    var targetImage = undefined;
+
+    $scope.setFile = function(e)
+		{
+			console.log( e.files );
+			$scope.imageLoaded = false;
+
+			for (var i = 0; i < e.files.length; i++) {
+                //$scope.filesforupload.push(e.files[i])
+                
+                var reader = new FileReader();
+                
+                reader.onload = function(event)
+    			{
+                	//console.log( event.target);
+                	
+                	window.setTimeout(function(){
+                	
+                		console.log( 'File Read' );
+                		console.log( $scope.imageLoaded );
+
+                		if( event.target.result.indexOf("image/jpeg") != -1 || event.target.result.indexOf("image/png") != -1 )
+                		{
+                			$scope.$apply( $scope.imageLoaded = true );
+                			targetImage = event.target.result;
+                			$('#imageLoaded').attr('src', event.target.result);
+
+       //          			$scope.$apply( $scope.filesforupload.push({"ImageUrl": event.target.result , "Status" : "valid" , "index": new String( event.target.result.toString() ).hashCode() , "UploadStatus" : "Uploading" }) );
+
+       //          			//
+       //          			var json = {
+							// 	Email : $scope.currentUser.Email,
+							// 	file : event.target.result,
+							// 	id : new String( event.target.result.toString() ).hashCode(),
+							// 	Type : $scope.currentUser.Type
+							// };
+
+							// $scope.stateDisabled = true;
+							// showMasterProgress(true);
+
+			    // 			$http({
+						 //        url: '/uploadMediaSpaceImage',
+						 //        method: "POST",
+						 //        data: json,
+						 //        json: true,
+						 //        headers: {
+							// 		        "content-type": "application/json",  // <--Very important!!!
+							// 		    }
+						 //    })
+						 //    .then(function(response) {
+						            
+						 //    		if( response.data.message == 'Media Space Image Upload Failure' )
+						 //            {
+						 //            	$scope.fileUploadcount++;
+
+						 //            	var index = response.data.Data.index;
+
+						 //            	for( var i = 0 ; i < $scope.filesforupload.length ; i++ )
+						 //            	{
+						 //            		if( $scope.filesforupload[i].index == index )
+						 //            		{
+						 //            			$scope.filesforupload[i].UploadStatus = "Failed";
+						 //            			break;
+						 //            		}
+						 //            	}
+						 //            }
+						 //            else if( response.data.message == 'Media Space Image Upload Success' )
+						 //            {
+						 //            	$scope.fileUploadcount++;
+
+						 //            	var index = response.data.Data.index;
+
+						 //            	for( var i = 0 ; i < $scope.filesforupload.length ; i++ )
+						 //            	{
+						 //            		if( $scope.filesforupload[i].index == index )
+						 //            		{
+
+						 //            			$scope.filesforupload.splice( i, 1);
+						            			
+						 //            			$scope.mediaspace.push( {"url": response.data.Data.url , "valuechecked" : false });
+
+						 //            			break;
+						 //            		}
+						 //            	}
+
+						 //            	if( $scope.fileUploadcount == e.files.length )
+						 //            		showSnackBar('Media Space Upload Success','Green');
+
+						 //            }
+
+						 //            $scope.stateDisabled = false;
+							// 		showMasterProgress(false);
+						 //    }, 
+						 //    function(response) { // optional
+						 //            $scope.imageUpload = false;
+							// 		$scope.stateDisabled = false;
+							// 		showMasterProgress(false);
+							// 		showSnackBar('Profile Pic Update Failure','Red');
+						 //    });
+                			//
+                		}
+                		else
+                		{
+                			$scope.$apply( $scope.filesforupload.push({"ImageUrl": event.target.result , "Status" : "invalid" , "index":  new String( event.target.result.toString() ).hashCode() , "UploadStatus" : "invalid" }) );
+                			console.log( 'error' )
+                		}
+                		
+                		
+                	},100);
+                	
+    	  		};
+    	  		
+    	  		reader.readAsDataURL(e.files[i]);
+            }
+
+            
+		};
+
+    $scope.openFileChooser = function()
+	{
+		$('#trigger').trigger('click');
+	};
 
 
     // function to process the form
