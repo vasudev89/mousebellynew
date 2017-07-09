@@ -1,6 +1,9 @@
 <div class="text-center">
-    <span class="glyphicon glyphicon-heart"></span>
-    <h3>Thanks For Your Money!</h3>
     
-    <button type="submit" class="btn btn-danger">Submit</button>
+	<button type="submit" class="btn btn-danger">Submit</button>
+    
+    <img src="images/profile_male.png" style="margin: auto; width: 80%;" ng-if="formData.Gender == 'Male'">
+    <img src="images/profile_female.png" style="margin: auto; width: 80%;" ng-if="formData.Gender == 'Female'" >
+
+    
 </div>

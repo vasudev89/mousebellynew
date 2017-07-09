@@ -1,4 +1,4 @@
-app.controller("formController",['$scope','$location','$window','$http','$state',function(  $scope , $location, $window, $http,$state){
+app.controller("formController",['$scope','$location','$window','$http','$state','fileUpload',function(  $scope , $location, $window, $http,$state,$fileUpload){
 
 	console.log('formController');
 

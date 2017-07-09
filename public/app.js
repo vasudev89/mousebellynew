@@ -77,6 +77,26 @@ app.directive('eatClickIf', ['$parse', '$rootScope',
   }
 ]);
 
+app.service('fileUpload', [ '$http', function($http) {
+    this.uploadFileToUrl = function(file, paramuser, uploadUrl) {
+      var fd = new FormData();
+      fd.append('file', file);
+      //fd.append('user','vasudev89');
+      return $http.post(uploadUrl, fd, {
+        transformRequest : angular.identity,
+        headers : {
+          'Content-Type' : undefined,
+          user : paramuser
+        }
+      }).then(function(response) {
+        return response.data;
+      }, function(errResponse) {
+        console.error('Error while updating User');
+        return "error";
+      });
+    }
+  } ]);
+
 app.config(function($stateProvider, $routeProvider){
 	
   $stateProvider
