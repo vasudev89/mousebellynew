@@ -23,6 +23,10 @@
 					<br>
 			        <p ng-if="Part1Errors" class="alert alert-danger" style="font-size: 32px; margin: auto; width: 80%;">Please fill in the data for Part One correctly.</p>
 			        <br>
+
+			        <p ng-if="!Part1Errors && Part2Errors" class="alert alert-danger" style="font-size: 32px; margin: auto; width: 80%;">Please fill in the data for Part Two correctly.</p>
+			        <br>
+
 			      </div>
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -35,9 +39,9 @@
           <div id="status-buttons" class="text-center">
           		<!-- eat-click-if="ShowPart1Errors()" -->
 
-              <a ui-sref-active="active" ui-sref=".profile"><span>1</span> Profile</a>
-              <a  ui-sref-active="active" ui-sref=".interests" ng-click="LoadPart2()" ><span>2</span> Address</a>
-              <a ui-sref-active="active" ui-sref=".payment" ng-show="!Part1Errors && !Part2Errors"><span>3</span> Picture</a>
+              <a eat-click-if="Part1Filled == true && ShowPart2Errors()" ui-sref-active="active" ui-sref=".profile"><span>1</span> Profile</a>
+              <a eat-click-if="ShowPart1Errors()" ui-sref-active="active" ui-sref=".interests" ng-click="LoadPart2()" ><span>2</span> Address</a>
+              <a eat-click-if="ShowPart1Errors() || ShowPart2Errors()" ui-sref-active="active" ui-sref=".payment"><span>3</span> Picture</a>
           </div>
       </div>
       

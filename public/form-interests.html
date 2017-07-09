@@ -9,11 +9,21 @@
   
 	<script>
 	function myMap() {
-	var mapProp= {
-	    center:new google.maps.LatLng(28.644800,77.216721),
-	    zoom:12,
-	};
-	var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		try
+		{
+
+			var mapProp= {
+			    center:new google.maps.LatLng(28.644800,77.216721),
+			    zoom:12,
+			};
+			var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+		}
+		catch(e)
+		{
+			console.log(e);
+		}
+		
 	}
 	</script>
 
@@ -343,8 +353,8 @@
 <br>
 
 <div class="form-group row">
-<div class="col-xs-6 col-xs-offset-3" ng-show="!Part1Errors && !Part2Errors">
-    <a ui-sref="form.payment" class="btn btn-block btn-info">
+<div class="col-xs-6 col-xs-offset-3">
+    <a eat-click-if="ShowPart1Errors()" ui-sref="form.payment" class="btn btn-block btn-info">
     Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
     </a>
 </div>

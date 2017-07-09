@@ -8,13 +8,77 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
     $scope.formData = {};
 
     $scope.Part1Errors = true;
+    $scope.Part1Filled = false;
 
 	$scope.ShowPart1Errors = function()
 	{
 		if($scope.Part1Errors)
 			$('#signupErrorModal').modal('show');
+		else
+			$scope.Part1Filled = true;
 		
+
+		if( $scope.Part2Errors == false )
+		{
+			var searchString = $scope.formData.Locality + ", " + $scope.formData.City + ", " + $scope.formData.State + ", " + $scope.formData.Zipcode + ", " +  $scope.formData.Country;
+
+    		console.log( searchString );
+
+    		$http.get('http://maps.google.com/maps/api/geocode/json?address='+searchString+'&sensor=false')
+		    	.then(function(mapData) {
+			      	try
+			      	{
+			      		console.log( mapData.data.results[0].geometry.location );
+
+
+
+			      		window.setTimeout(function(){
+
+			      			//var myLatLng = new google.maps.LatLng(-25.363882,131.044922);
+
+			      			latLng = new google.maps.LatLng( mapData.data.results[0].geometry.location.lat , mapData.data.results[0].geometry.location.lng)
+							  var mapOptions = {
+							    center: latLng,
+							    zoom: 16,
+							    mapTypeId: google.maps.MapTypeId.ROADMAP
+							  };
+							  var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+
+							  var marker = new google.maps.Marker({
+							      position: latLng,
+							      title:"Hello World!",
+							      visible: true
+							  });
+							  marker.setMap(map);
+
+			      		},500);
+
+			      		
+			      	}
+			      	catch(e)
+			      	{
+			      		console.log(e);
+			      	}
+
+			      	
+			    });
+		}
+				
+
 		return $scope.Part1Errors;
+	}
+
+	$scope.ShowPart2Errors = function()
+	{
+		if($scope.Part2Errors)
+			$('#signupErrorModal').modal('show');
+		
+		console.log('Part 2');
+
+		
+
+
+		return $scope.Part2Errors;
 	}
 
     $scope.CheckPart1Errors = function()
@@ -346,8 +410,11 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 
 	$scope.Part2Errors = true;
 
+	$scope.location = undefined;
+
     $scope.CheckPart2Errors = function()
     {
+    	console.log('Part 2 Errors');
     	$scope.Part2Errors = !( 
     							($scope.StreetError == false)
     							&&
@@ -383,6 +450,8 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 			      	{
 			      		console.log( mapData.data.results[0].geometry.location );
 
+
+
 			      		window.setTimeout(function(){
 
 			      			//var myLatLng = new google.maps.LatLng(-25.363882,131.044922);
@@ -415,6 +484,8 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 			    });	
     	}
     }
+
+
 
     // function to process the form
     $scope.processForm = function() {
