@@ -502,6 +502,17 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 
     var targetImage = undefined;
 
+    $scope.DeleteImage = function()
+    {
+    	$scope.imageLoaded = false;
+    	var targetImage = undefined;
+
+    	if( $scope.formData.Gender == 'Male' )
+    		$('#imageLoaded').attr('src', 'images/profile_male.png');
+    	else
+    		$('#imageLoaded').attr('src', 'images/profile_female.png');
+    }
+
     $scope.setFile = function(e)
 		{
 			console.log( e.files );

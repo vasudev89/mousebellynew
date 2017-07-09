@@ -9,7 +9,7 @@
 
 	<br>
 
-	<button class="btn btn-link" style="padding-left: 20px; padding-right: 20px; margin-top: 20px;" ng-click="imageLoaded = false" ng-show="imageLoaded"><span class="glyphicon glyphicon-upload"></span> &nbsp;&nbsp; Delete</button>
+	<button class="btn btn-link" style="padding-left: 20px; padding-right: 20px; margin-top: 20px;" ng-click="DeleteImage()" ng-show="imageLoaded">Delete</button>
 	
 	<br>
 	<input type="file" multiple id="trigger" ng-show="false" onchange="angular.element(this).scope().setFile(this)" accept="video/*|image/*" file-model="myFile"/>
