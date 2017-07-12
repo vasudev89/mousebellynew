@@ -5,14 +5,14 @@
 	<br>
 	<br>
 
-	<button class="btn btn-success" style="padding-left: 20px; padding-right: 20px;" ng-click="openFileChooser();"><span class="glyphicon glyphicon-upload"></span> &nbsp;&nbsp; Choose Image</button>
+	<button class="btn btn-success" style="padding-left: 20px; padding-right: 20px;" ng-click="openFileChooser();" ng-show="!imageLoaded"><span class="glyphicon glyphicon-upload"></span> &nbsp;&nbsp; Choose Image</button>
 
 	<br>
 
 	<button class="btn btn-link" style="padding-left: 20px; padding-right: 20px; margin-top: 20px;" ng-click="DeleteImage()" ng-show="imageLoaded">Delete</button>
 	
 	<br>
-	<input type="file" multiple id="trigger" ng-show="false" onchange="angular.element(this).scope().setFile(this)" accept="video/*|image/*" file-model="myFile"/>
+	<input type="file" id="trigger" ng-show="false" onchange="angular.element(this).scope().setFile(this)" accept="video/*|image/*" file-model="myFile"/>
 
 	<div style="margin: auto; width: 80%; text-align: center; margin-top: 20px;">
 
@@ -20,6 +20,8 @@
 	    <img src="images/profile_female.png" style="max-width: 100%;" ng-if="!imageLoaded && formData.Gender == 'Female'" >
 
 	    <img id="imageLoaded" style="max-width: 100%;" ng-if="imageLoaded" >
+
+	    <img id="imageLoaded1" style="max-width: 100%;" >
 
 	</div>
 

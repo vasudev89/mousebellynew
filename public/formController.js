@@ -17,16 +17,24 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 		else
 			$scope.Part1Filled = true;
 		
-		console.log( targetImage );
-
-		console.log( $scope.imageLoaded );
-
 		if( targetImage != undefined )
 		{
 			$scope.imageLoaded = true;
 
 			window.setTimeout(function(){
 				$('#imageLoaded').attr('src', targetImage);
+				$uploadCrop = $('#imageLoaded').croppie({
+							    enableExif: true,
+							    viewport: {
+							        width: 200,
+							        height: 200,
+							        type: 'circle'
+							    },
+							    boundary: {
+							        width: 300,
+							        height: 300
+							    }
+							});
 			},500);
 			
 		}
@@ -500,6 +508,8 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 
     $scope.imageLoaded = false;
 
+    $scope.imageUrl = '';
+
     var targetImage = undefined;
 
     $scope.DeleteImage = function()
@@ -512,6 +522,8 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
     	else
     		$('#imageLoaded').attr('src', 'images/profile_female.png');
     }
+
+    var $uploadCrop = undefined;
 
     $scope.setFile = function(e)
 		{
@@ -536,7 +548,25 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
                 		{
                 			$scope.$apply( $scope.imageLoaded = true );
                 			targetImage = event.target.result;
+                			$scope.imageUrl = event.target.result;
                 			$('#imageLoaded').attr('src', event.target.result);
+
+                			$uploadCrop = $('#imageLoaded').croppie({
+							    enableExif: true,
+							    viewport: {
+							        width: 200,
+							        height: 200,
+							        type: 'circle'
+							    },
+							    boundary: {
+							        width: 300,
+							        height: 300
+							    }
+							});
+
+                			
+
+							//console.log( $('#imageLoaded').croppie('result').[[PromiseValue]])
 
        //          			$scope.$apply( $scope.filesforupload.push({"ImageUrl": event.target.result , "Status" : "valid" , "index": new String( event.target.result.toString() ).hashCode() , "UploadStatus" : "Uploading" }) );
 
@@ -637,7 +667,15 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 
     // function to process the form
     $scope.processForm = function() {
-        alert('awesome!');  
+        // alert('awesome!');
+
+        $uploadCrop.croppie('result', {
+							    type: 'canvas',
+							    size: 'viewport'
+							}).then(function (resp) {
+							    console.log(resp);
+							    $('#imageLoaded1').attr('src', resp);
+							});
     };
 
 
