@@ -33,7 +33,7 @@
 
 <div class="container address" style="margin: auto; top: 80px; background-color: rgba(255,255,255,0.8); position: absolute; padding: 10px;">
 
-	<input type="text" autofocus="true" class="form-control" ng-model="formData.Street" ng-change="ValidateStreet()" placeholder="Enter Street" ng-style="(StreetError == true) && {'border':'1px solid #990000'}" style="z-index: 10;">
+	<input type="text" autofocus="true" class="form-control" ng-model="formData.Street" ng-blur="ValidateStreet()" placeholder="Enter Street" ng-style="(StreetError == true) && {'border':'1px solid #990000'}" style="z-index: 10;">
 	<br>
 
 	<div class="row">
@@ -44,7 +44,7 @@
 
 	  </div>
 
-	<input type="text" class="form-control" ng-model="formData.Locality" ng-change="ValidateLocality()" placeholder="Enter Locality" style="z-index: 10;" ng-style="(LocalityError == true) && {'border':'1px solid #990000'}">
+	<input type="text" class="form-control" ng-model="formData.Locality" ng-blur="ValidateLocality()" placeholder="Enter Locality" style="z-index: 10;" ng-style="(LocalityError == true) && {'border':'1px solid #990000'}">
 	<br>
 
 	<div class="row">
@@ -55,7 +55,7 @@
 
 	  </div>
 
-	<input type="text" class="form-control" ng-model="formData.City" ng-change="ValidateCity()" placeholder="Enter City" style="z-index: 10;" ng-style="(CityError == true) && {'border':'1px solid #990000'}">
+	<input type="text" class="form-control" ng-model="formData.City" ng-blur="ValidateCity()" placeholder="Enter City" style="z-index: 10;" ng-style="(CityError == true) && {'border':'1px solid #990000'}">
 	<br>
 	<div class="row">
 
@@ -65,7 +65,7 @@
 
 	  </div>
 
-	<input type="text" class="form-control" ng-model="formData.State" ng-change="ValidateState()" placeholder="Enter State" style="z-index: 10;" ng-style="(StateError == true) && {'border':'1px solid #990000'}">
+	<input type="text" class="form-control" ng-model="formData.State" ng-blur="ValidateState()" placeholder="Enter State" style="z-index: 10;" ng-style="(StateError == true) && {'border':'1px solid #990000'}">
 	<br>
 
 	<div class="row">
@@ -332,7 +332,7 @@
     </select>
 
     <br>
-    <input type="text" class="form-control" ng-model="formData.Zipcode" ng-change="ValidateZipcode()" placeholder="Enter Zipcode" style="z-index: 10;" ng-style="(ZipcodeError == true) && {'border':'1px solid #990000'}">
+    <input type="text" class="form-control" ng-model="formData.Zipcode" ng-blur="ValidateZipcode()" placeholder="Enter Zipcode" style="z-index: 10;" ng-style="(ZipcodeError == true) && {'border':'1px solid #990000'}">
 	<br>
 
 	<div class="row">
