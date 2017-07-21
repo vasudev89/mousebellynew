@@ -147,5 +147,13 @@ app.config(function($stateProvider, $routeProvider){
 		
 		
 	})
+
+  .when('/recipeadd',{
+  
+    templateUrl : 'recipe.html',
+    controller  : 'RecipeController'
+    
+    
+  })
 	
 })

@@ -1,0 +1,228 @@
+<div class="container" style="margin: auto; width: 95%; border: 0px solid red; background-color: rgba(255,255,255,0.8);">
+
+	<div class="row">
+
+	<h3 style="color:#8e0808;font-family: 'Carrois Gothic', sans-serif; font-weight:200;font-size: 4.55em; text-align: center;">Add &nbsp;Recipe</h3>
+
+	</div>
+
+	<br>
+
+	<div class="row">
+
+		<div class="col-lg-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+			<label for="name">Recipe Name</label>
+		</div>
+
+		<div class="col-lg-10" style="height: 50px; line-height: 50px; padding-top: 8px;">
+			
+			<input type="text" class='form-control' placeholder='Recipe Name'>
+
+		</div>
+	</div>
+	<br>
+
+	<div class="row">
+
+		<div class="col-lg-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+			<label for="name">Serving Size</label>
+		</div>
+
+		<div class="col-lg-6" style="height: 50px; line-height: 50px; padding-top: 8px;">
+			
+			<select class="form-control select-menu">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="4+">4+</option>
+			</select>
+
+		</div>
+
+		<div class="col-lg-4" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+			<label for="name">Person(s)</label>
+		</div>
+
+	</div>
+
+	<br>
+
+	<div class="row">
+
+		<div class="col-lg-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+			<label for="name">Time to Make</label>
+		</div>
+
+		<div class="col-lg-6" style="height: 50px; line-height: 50px; padding-top: 8px;">
+			
+			<select class="form-control select-menu">
+				<option value="1">15</option>
+				<option value="2">30</option>
+				<option value="3">45</option>
+				<option value="4">60</option>
+				<option value="4+">75</option>
+				<option value="4+">90</option>
+				<option value="4+">120</option>
+			</select>
+
+		</div>
+
+		<div class="col-lg-4" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+			<label for="name">Minutes</label>
+		</div>
+
+	</div>
+
+	<br>
+
+	<div class="row">
+
+		<div class="col-lg-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+			<label for="name">Ingredients</label>
+		</div>
+
+		<div class="col-lg-6" style="height: 50px; line-height: 50px; padding-top: 8px;">
+			
+			<button class="addingredient" ng-click="addIngredient()"><span class="ionicons ion-ios-plus-empty" style="font-size: 35px; line-height: 45px;"></span></button>
+
+		</div>
+
+		
+	</div>
+
+	<div class="row" ng-show="ingredients.length != 0">
+
+		<br>
+
+		<div class="col-lg-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+			
+		</div>
+
+		<div class="col-lg-10" style=" line-height: 50px; padding-top: 8px;">
+			
+			<div class="table-responsive">
+			  <table class="table table-striped">
+			    <thead style="background-color: #551a8b; color: white;">
+			      <tr>
+			        <th>#</th>
+			        <th>Ingredient Name</th>
+			        <th>Qty</th>
+			        <th>Unit</th>
+			        <th>Delete</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr ng-repeat="x in ingredients track by $index">
+			        <td>{{$index + 1 }}</td>
+			        <td>
+						<input type="text" class='form-control' placeholder='Ingredient {{$index + 1}}' ng-model='x.ingredientName'>
+					</td>
+			        <td>
+
+			        	<select class="form-control select-menu">
+							<option value="0.1">0.1</option>
+							<option value="0.25">0.25</option>
+							<option value="0.5">0.5</option>
+							<option value="0.75">0.75</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="20">20</option>
+							<option value="50">50</option>
+							<option value="100">100</option>
+							<option value="200">200</option>
+							<option value="500">500</option>
+							<option value="750">750</option>
+						</select>
+
+			        </td>
+			        <td>
+						<select class="form-control select-menu">
+							<option value="Tsp">Tsp</option>
+							<option value="Tbsp">Tbsp</option>
+							<option value="Gms">Gms</option>
+							<option value="Kg">Kg</option>
+							<option value="Kg">Oz</option>
+							<option value="Ltr">Ltr</option>
+							<option value="Gallon">Gallon</option>
+							<option value="Pcs">Pcs</option>
+						</select>
+			        </td>
+			        <td><button class="btn btn-link" ng-click="DeleteIngredient($index)">Delete</button></td>
+			      </tr>
+			    </tbody>
+			  </table>
+		  </div>
+
+		</div>
+
+		
+	</div>
+
+	<hr>
+
+	<div class="row">
+
+		<div class="col-lg-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+			<label for="name">Steps</label>
+		</div>
+
+		<div class="col-lg-6" style="height: 50px; line-height: 50px; padding-top: 8px;">
+			
+			<button class="addingredient" ng-click="addStep()"><span class="ionicons ion-ios-plus-empty" style="font-size: 35px; line-height: 45px;"></span></button>
+
+		</div>
+
+		
+	</div>
+
+	<div class="row" ng-show="step.length != 0">
+
+		<br>
+
+		<div class="col-lg-2" style="border: 0px solid red;margin: auto;display:block;overflow:none; height: 50px; line-height: 50px;">
+			
+		</div>
+
+		<div class="col-lg-10" style=" line-height: 50px; padding-top: 8px;">
+			
+			<div class="table-responsive">
+			  <table class="table table-striped">
+			    <thead style="background-color: #551a8b; color: white;">
+			      <tr>
+			        <th>#</th>
+			        <th>Step</th>
+			        <th>Move Up/Down</th>
+			        <th>Delete</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr ng-repeat="x in step track by $index">
+			        <td>{{$index + 1 }}</td>
+			        <td>
+						<textarea class='form-control' placeholder='Step {{$index + 1}}' ng-model='x.step' style="resize: none;"></textarea>
+					</td>
+			        <td></td>
+			        <td><button class="btn btn-link">Delete</button></td>
+			      </tr>
+			    </tbody>
+			  </table>
+		  </div>
+
+		</div>
+
+		
+	</div>
+
+	<hr>
+
+</div>
+

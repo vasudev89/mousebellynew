@@ -669,6 +669,7 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
     $scope.processForm = function() {
         // alert('awesome!');
 
+        if( $uploadCrop != undefined )
         $uploadCrop.croppie('result', {
 							    type: 'canvas',
 							    size: 'viewport'
@@ -676,6 +677,8 @@ app.controller("formController",['$scope','$location','$window','$http','$state'
 							    console.log(resp);
 							    $('#imageLoaded1').attr('src', resp);
 							});
+
+		$('#termsModal').modal('show');
     };
 
 
