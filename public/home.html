@@ -1,1 +1,120 @@
-hi
+
+
+
+<br>
+
+<h1 style="font-family: 'Carrois Gothic', sans-serif; color: #770000; text-align: center; background-color: rgba(255,255,255,0.8); padding: 20px;">Meal Planner</h1>
+
+<!-- <div class="container" style="margin: auto; width: 80%;">
+
+<calendar-md flex layout layout-fill
+  calendar-direction="direction"
+  on-prev-month="prevMonth"
+  on-next-month="nextMonth"
+  on-day-click="dayClick"
+  title-format="'MMMM y'"
+  ng-model='selectedDate'
+  week-starts-on="firstDayOfWeek"
+  data-start-month="8"
+  data-start-year="2014"
+  tooltips="tooltips"
+  day-format="dayFormat"
+  day-label-format="'EEE'"
+  day-label-tooltip-format="'EEEE'"
+  day-tooltip-format="'fullDate'"
+  day-content="setDayContent"
+  disable-future-selection="false"></calendar-md>
+
+</div>
+
+
+<br>
+<br>
+
+<br>
+<br>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    $('.hidden1').hide()
+});
+
+$("#productSelectionDivClose").click(function () {
+    if( $('#productSelectionDiv').css('display') == 'block' )
+		$('#productSelectionDiv').slideToggle("slow");
+});
+</script>
+
+<div class="hidden1" id="productSelectionDiv">
+<button type="button" class="btn btn-danger" id="productSelectionDivClose" style="float: right; margin-top: 15px; margin-right: 10px;font-family: 'Carrois Gothic', sans-serif; font-size: 20px;">&times;</button>
+
+<h1 style="font-family: 'Carrois Gothic', sans-serif; color: #770000; text-align: center; background-color: rgba(255,255,255,0.8); padding: 0px; margin-bottom: -10px;">Product Selection</h1>
+<hr>
+
+<div class="outer">
+
+	<li ng-repeat="x in data track by $index">
+		<span ng-click="abc($index)">
+		<img src="{{x.image}}" width="40" class="img img-thumbnail">
+	    <span style="display:inline;">{{x.name}}</span>
+	    </span>
+	</li>
+
+  
+
+</div>
+
+</div> -->
+
+<!-- <button class="btn btn-danger" ng-click="generatePDF()">PDF</button> -->
+
+<!-- kendo-scheduler k-options="schedulerOptions" -->
+
+<div id="example" class="k-content">
+    <div id="scheduler" ></div>
+</div>
+
+<script id="event-template" type="text/x-kendo-template">
+    <div class="movie-template">
+        <img src="#= image #" class="img img-thumbnail" style="width: 80px;">
+        <p>
+            #: kendo.toString(start, "hh:mm") # - #: kendo.toString(end, "hh:mm") #
+        </p>
+        <h3>#: title #</h3>
+        <a href="#= imdb #">#: title #</a>
+    </div>
+</script>
+
+<script>
+
+</script>
+<style>
+    .movie-template img {
+        float: left;
+        margin: 0 8px;
+    }
+    .movie-template p {
+        margin: 5px 0 0;
+    }
+    .movie-template h3 {
+        padding: 0 8px 5px;
+        font-size: 12px;
+    }
+    .movie-template a {
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    .k-state-hover .movie-template a,
+    .movie-template a:hover {
+        color: #000000;
+    }
+</style>
+
+<div ng-repeat="x in data track by $index">
+
+	{{x.title}}
+
+	<button class="btn btn-danger" ng-click="DeleteItem($index)">Delete</button>
+
+</div>

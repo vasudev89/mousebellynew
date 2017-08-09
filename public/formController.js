@@ -1,9 +1,11 @@
-app.controller("formController",['$scope','$location','$window','$http','$state','fileUpload',function(  $scope , $location, $window, $http,$state,$fileUpload){
+app.controller("formController",['$scope','$location','$window','$http','$state','fileUpload','$ocLazyLoad',function(  $scope , $location, $window, $http,$state,$fileUpload,$ocLazyLoad){
 
 	console.log('formController');
 
 	$state.transitionTo('form.profile');
 	
+	$ocLazyLoad.load('references/js/kendo.all.min.js');
+
 // we will store all of our form data in this object
     $scope.formData = {};
 

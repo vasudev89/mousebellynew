@@ -1,4 +1,65 @@
-var app = angular.module('myApp',['ngRoute','ngAnimate', 'ui.router']);
+var app = angular.module('myApp',["kendo.directives",'ngRoute','ngAnimate', 'ui.router','ui.calendar','oc.lazyLoad',"ngMaterial", "materialCalendar"]);
+
+function Start() {
+
+   var OldHtml = window.jQuery.fn.html;
+
+   window.jQuery.fn.html = function () {
+
+     var EnhancedHtml = OldHtml.apply(this, arguments);
+
+     if (arguments.length && EnhancedHtml.find('.MyClass').length) {
+
+         var TheElementAdded = EnhancedHtml.find('.MyClass'); //there it is
+
+         var TheElementAdded1 = EnhancedHtml.find('.MyClass1');
+
+          console.log( TheElementAdded.length )
+
+          window.setTimeout(function(){
+            TheElementAdded.css(
+            { "width":"200px" ,
+              "height":"200px" , 
+              "border-radius": "100%",
+              "line-height": "200px",
+              "font-size": "50px",
+              "margin": "auto", 
+              "text-align": "center",
+              "background-color": "none",
+              "border": "5px solid #333333",
+              "border-bottom": "5px solid #3498db",
+              "animation": "rota "+TheElementAdded.attr("total-time")+"s linear infinite"
+            });
+
+            console.log( TheElementAdded1 );
+
+            TheElementAdded1.css(
+            { 
+              "position" : "relative",
+              "top":"-400px",
+              "width":"200px" ,
+              "border":"1px solid blue",
+              "height":"200px" , 
+              "font-size": "50px",
+              "text-align": "center",
+              "background-color": "none"
+              
+            });
+
+            console.log( TheElementAdded.attr("total-time") );  
+            console.log( TheElementAdded.attr("border-top-length") );  
+            console.log( TheElementAdded.attr("border-bottom-length") );  
+            console.log( TheElementAdded );
+          },200);
+          
+          
+     }
+
+     return EnhancedHtml;
+   }
+}
+
+$(Start);
 
 console.log('Hi');
 
@@ -76,6 +137,21 @@ app.directive('eatClickIf', ['$parse', '$rootScope',
     }
   }
 ]);
+
+app.directive('ngFiles', ['$parse', function ($parse) {
+
+            function fn_link(scope, element, attrs) {
+                var onChange = $parse(attrs.ngFiles);
+                element.on('change', function (event) {
+                    onChange(scope, { $files: event.target.files });
+
+                });
+            };
+
+            return {
+                link: fn_link
+            }
+        } ]);
 
 app.service('fileUpload', [ '$http', function($http) {
     this.uploadFileToUrl = function(file, paramuser, uploadUrl) {

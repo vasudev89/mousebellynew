@@ -8,6 +8,12 @@
     "mongodb": "^2.2.29"
   },
   "devDependencies": {},
+  "dependencies": {
+    "@google-cloud/storage": "*",
+    "body-parser": "*",
+    "express": "*",
+    "multer": "*"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
